@@ -15,7 +15,7 @@ Finalisation. App claimed and verified, code and assets on GitHub, video revised
 | GitHub push | VERIFIED |
 | Tests (unit, e2e live, WebKit) | VERIFIED |
 | Meter display fix | VERIFIED: deployed with your key (deploy #5), 34/34 live e2e |
-| Video (89 s), subtitles, thumbnails, VO script | COMPLETED (re-rendered with the fixed live footage) |
+| Video (89 s) | **APPROVED: narrated cut `protein-recharge-final-voiced-9x16.mp4`** (AI clone of your voice, local only), fallback unnarrated cut, subtitles, thumbnails |
 | Registration on Unstop and Embarko | AWAITING YOU |
 | Instagram / YouTube / X posts | PREPARED, not published |
 | Bonus writing posts | PREPARED, not published |

@@ -1,6 +1,6 @@
 # Instagram Reel
 
-**Video:** `video/exports/protein-recharge-final-voiced-9x16.mp4` (1080 × 1920, 89 s, narrated in an AI clone of your voice). Fallback without narration: `protein-recharge-demo-9x16.mp4`.
+**Video:** `video/exports/protein-recharge-final-voiced-9x16.mp4` (**official, approved**, 1080 × 1920, 89 s, narrated in an AI clone of your voice). Fallback without narration: `protein-recharge-demo-9x16.mp4`.
 **AI label:** Instagram asks about AI-generated content when you post. Turn on the **AI info** label, because the narration is synthetic audio of your voice.
 **Cover:** `video/exports/cover-reels-1080x1920.png` (choose "Add from camera roll" for the cover)
 **Music (optional):** the export has sound effects only. Instagram's built-in music library is licensed for Reels: pick an upbeat instrumental and keep it at about 15% so the effects still come through.

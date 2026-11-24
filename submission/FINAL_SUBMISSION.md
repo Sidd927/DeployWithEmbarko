@@ -16,7 +16,7 @@ Submit at https://embarko.ai/challenge?cref=UNSTOP#submit. Resubmitting with the
 | One-line description | The cheapest way to hit your daily protein, planned around your mess meals, your kettle and your budget. | ✅ |
 | **App link** | **https://protein-recharge.embarko.app** | ✅ live and verified 24 Nov (31/31 e2e passed live) |
 | App kept (claimed) | Claimed 24 Nov 2026, dashboard shows Live and Public | ✅ (entrant's dashboard, plus no deletion banner and a 404 on the keyless status call, as the docs describe) |
-| Video file | **A**: `video/exports/protein-recharge-demo-9x16.mp4` (unnarrated, official) · **B**: `protein-recharge-final-voiced-9x16.mp4` (AI clone of your voice, local) | ✅ Both encode-verified, 89 s. **B is waiting for your listening approval.** If you post B, keep the AI-voice disclosure |
+| Video file | **`video/exports/protein-recharge-final-voiced-9x16.mp4`** (official, narrated in an AI clone of your voice, approved 24 Nov) · fallback `protein-recharge-demo-9x16.mp4` | ✅ 89 s, encode-verified, approved. **Post it with the AI-voice disclosure and the platform's AI label** |
 | Video title | Hostel mess food. Enough protein? I built the cheapest fix #DeployWithEmbarko | ✅ prepared |
 | Instagram Reel URL | — | ⏳ not published yet (caption ready: INSTAGRAM_POST.md) |
 | YouTube Short URL | — | ⏳ not published yet (metadata ready: YOUTUBE_METADATA.md) |

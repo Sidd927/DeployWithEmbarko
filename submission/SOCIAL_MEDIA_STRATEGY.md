@@ -5,7 +5,7 @@ Reach is worth **300 points**, scored on views and engagement visible at judging
 ## Posting plan (dates are IST)
 | When | Platform | Asset | Why |
 |---|---|---|---|
-| Day 1, 7–9 pm | **Instagram Reel** | `video/exports/protein-recharge-demo-9x16.mp4`, cover `cover-reels-1080x1920.png` | Evening is peak time for students. Reels give the best non-follower reach for fitness and food content in India |
+| Day 1, 7–9 pm | **Instagram Reel** | `video/exports/protein-recharge-final-voiced-9x16.mp4` (official, narrated), cover `cover-reels-1080x1920.png`, AI label on | Evening is peak time for students. Reels give the best non-follower reach for fitness and food content in India |
 | Day 1, 15 min later | **YouTube Shorts** | same video, title and description from YOUTUBE_METADATA.md | Shorts surfaces searchable "protein on a budget" content for weeks |
 | Day 1, 30 min later | **X** | same video, plus a reply thread with the build story | The dev and AI audience, and Embarko's own account may repost |
 | Day 2 | LinkedIn post | writing bonus (+5) | Classmates and seniors, plus credibility |

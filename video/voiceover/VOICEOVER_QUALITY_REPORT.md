@@ -1,8 +1,8 @@
 # Voiceover Quality Report (24 Nov 2026)
 
-**Voiced cut (B):** `video/exports/protein-recharge-final-voiced-9x16.mp4`. Local only and git-ignored until you approve it.
-**Unnarrated cut (A):** `video/exports/protein-recharge-demo-9x16.mp4`, the current official version.
-**Status:** B is rendered and machine-verified. **It is waiting for your listening approval** before it replaces A as the recommended upload.
+**Voiced cut (B):** `video/exports/protein-recharge-final-voiced-9x16.mp4`. **Official, approved by the entrant after listening (24 Nov).** Kept local and git-ignored.
+**Unnarrated cut (A):** `video/exports/protein-recharge-demo-9x16.mp4`, kept as a fallback.
+**Status:** APPROVED. B is the video to post. Keep the AI-voice disclosure and platform labels.
 
 ## How it was made
 - **Your voice:** `me.m4a.aifc` (25.3 s, lossless), cloned zero-shot with NarraReel `clone --i-have-consent` (consent recorded 2026-11-24T06:04:58Z). Profile `siddhant-clean` = your recording after a gentle denoise, chosen by you from four samples.

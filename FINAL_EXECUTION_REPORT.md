@@ -36,15 +36,18 @@ Legend: **COMPLETED** (done) · **VERIFIED** (done and checked with evidence) ·
 
 **Defect found and fixed:** while dragging past ₹50–52 the meter showed a 78.8 g plan as "79 of 79 g · 0 g short". It was display-only; the optimiser was verified correct. Fixed (`ce4b500`), **deployed with your key, and verified live** (34/34 Chromium including a new regression test, WebKit 10 passed).
 
-## 6. Video status: COMPLETED
+## 6. Video status: COMPLETED. Narrated version approved by you
+- **Official: `protein-recharge-final-voiced-9x16.mp4`**, narrated in an AI clone of your voice (NarraReel + Chatterbox, run locally, consent recorded). You approved it after listening on 24 Nov. Picture identical to the unnarrated cut. -13.2 LUFS, -1.0 dBFS peak, 14/14 lines inside their scenes, no line over the "Goal hit" or "Live" pops. Details: `video/voiceover/VOICEOVER_QUALITY_REPORT.md`.
+- An accuracy fix was made at the same time: the narration, the prompt-scene subtitle and the drafts no longer say you copied or pasted the Embarko prompt (Claude Code fetched and followed it).
+- Unnarrated version, kept as a fallback:
 - 89.0 s, 1080 × 1920, H.264/AAC. Decodes cleanly. -18.6 LUFS, -4.1 dBFS peak. `hyperframes check` 0 errors.
 - Added this pass: creator credit, a beat on the Embarko experience and the claim (fresh capture of the claimed app), slider recaptured to land exactly on ₹53, and the "Goal hit" title synced to the green frame (pixel-detected).
-- Requirements table: `video/FINAL_VIDEO.md`. All met, **except a spoken or on-camera self-introduction, which only you can provide**. The voiceover script is ready.
+- Requirements table: `video/FINAL_VIDEO.md`. All met. The narrated version opens with "Hi, I'm Siddhant".
 - The slider clip was recaptured from the fixed live app and the video re-rendered. The mid-drag frames now read honestly ("78 of 79 g · 0.2 g short" → "Goal hit").
-- Not done: a human listening pass.
+- Listening pass: done by you on the narrated version, which you approved.
 
 ## 7. Video location
-`video/exports/protein-recharge-demo-9x16.mp4` · subtitles `video/exports/protein-recharge-demo.srt` · YouTube thumbnail `video/exports/thumbnail-youtube-1280x720.png` · Reels cover `video/exports/cover-reels-1080x1920.png` · voiceover script `video/script/VOICEOVER_SCRIPT.md` · source `video/hf/`
+**`video/exports/protein-recharge-final-voiced-9x16.mp4`** (official, local only) · fallback `video/exports/protein-recharge-demo-9x16.mp4` · subtitles `video/voiceover/protein-recharge-final-voiced.srt` (narrated) and `video/exports/protein-recharge-demo.srt` (fallback) · YouTube thumbnail `video/exports/thumbnail-youtube-1280x720.png` · Reels cover `video/exports/cover-reels-1080x1920.png` · voiceover script `video/script/FINAL_VOICEOVER_SCRIPT.md` · source `video/hf/`
 
 ## 8. Registration status: AWAITING YOU (not verifiable by me)
 No evidence of either registration exists in the project, and both need your personal details.
