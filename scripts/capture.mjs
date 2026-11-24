@@ -152,6 +152,20 @@ const clips = {
     await ctx.close();
   },
 
+  /* The claimed live app, loaded fresh by URL (no overlays hidden). */
+  async live(browser) {
+    const { ctx, page } = await newPhone(browser);
+    await page.goto('about:blank');
+    await record(page, 'live', async () => {
+      await page.goto(LIVE, { waitUntil: 'networkidle' });
+      await page.evaluate(() => document.fonts.ready);
+      await sleep(1500);
+      await page.evaluate(() => window.scrollTo({ top: 560, behavior: 'smooth' }));
+      await sleep(2200);
+    });
+    await ctx.close();
+  },
+
   /* Landing first screen, still. */
   async landing(browser) {
     const { ctx, page } = await newPhone(browser);
@@ -213,7 +227,11 @@ const clips = {
     await record(page, 'slider', async () => {
       await sleep(600);
       await dragRange(page, '.budget input[type=range]', 12, 53, 4200);
-      await sleep(1600);
+      // pixel rounding can leave the thumb one rupee short: land exactly on the goal price
+      if ((await page.locator('.budget input[type=range]').inputValue()) !== '53') {
+        await page.locator('.budget input[type=range]').fill('53');
+      }
+      await sleep(2400);
     });
     await ctx.close();
   },

@@ -31,8 +31,13 @@ def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;")
 
 
-def scene(sid, dur, titles=(), subs=(), video=None, ground=None, body="", extra_css="", extra_tl="", instant=False):
-    """titles/subs: list of (text, start, end). video: dict(src, media_start, rate, pans=[(t, y, d)], start_y)."""
+SCENE_TEXT = {}
+
+
+def scene(sid, dur, titles=(), subs=(), video=None, ground=None, body="", extra_css="", extra_tl="", instant=False, cues=None):
+    """titles/subs: list of (text, start, end). video: dict(src, media_start, rate, pans=[(t, y, d)], start_y).
+    cues: explicit subtitle cues [(text, start, end)] for scenes without titles."""
+    SCENE_TEXT[sid] = (list(titles), list(subs), list(cues or []))
     html, tl = [], []
     for i, (text, a, b) in enumerate(titles):
         eid = f"{sid}-t{i}"
@@ -116,16 +121,21 @@ reveal_css = """
 #reveal-w1{top:700px}#reveal-w2{top:850px}
 #reveal-sub{position:absolute;left:130px;right:150px;top:1100px;text-align:center;font-weight:700;font-size:46px;line-height:1.25}
 #reveal-sub .in{display:inline-block;clip-path:inset(0 100% 0 0)}
+#reveal-by{position:absolute;left:130px;right:150px;top:1268px;text-align:center;font-weight:600;font-size:36px;color:#14241E}
+#reveal-by .in{display:inline-block;clip-path:inset(0 100% 0 0)}
 """
 shots.append(scene("reveal", 3.5, ground="#FFC21A", extra_css=reveal_css,
     body=f"""<div id="reveal-mark" class="clip" data-start="0" data-duration="3.5"><div id="reveal-mk">{MARK.format(s=220)}</div></div>
 <div id="reveal-w1" class="rw clip" data-start="0.25" data-duration="3.25"><span class="in">Protein</span></div>
 <div id="reveal-w2" class="rw clip" data-start="0.45" data-duration="3.05"><span class="in">Recharge</span></div>
-<p id="reveal-sub" class="clip" data-start="1.0" data-duration="2.5"><span class="in">Daily protein packs, priced like a phone recharge</span></p>""",
+<p id="reveal-sub" class="clip" data-start="1.0" data-duration="2.5"><span class="in">Daily protein packs, priced like a phone recharge</span></p>
+<p id="reveal-by" class="clip" data-start="1.5" data-duration="2.0"><span class="in">Built by Siddhant Patil with Claude Code</span></p>""",
+    cues=[("Protein Recharge\nDaily protein packs, priced like a phone recharge.\nBuilt by Siddhant Patil with Claude Code.", 0, 3.5)],
     extra_tl="""tl.fromTo("#reveal-mk",{scale:0.2,rotation:-12},{scale:1,rotation:0,duration:0.46,ease:"back.out(1.6)"},0);
 tl.fromTo("#reveal-w1 .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.34,ease:"power3.out"},0.25);
 tl.fromTo("#reveal-w2 .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.34,ease:"power3.out"},0.45);
-tl.fromTo("#reveal-sub .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.5,ease:"power3.out"},1.0);"""))
+tl.fromTo("#reveal-sub .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.5,ease:"power3.out"},1.0);
+tl.fromTo("#reveal-by .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.45,ease:"power3.out"},1.5);"""))
 
 # 4 Setup at 1.25x.
 shots.append(scene("setup", 9.8,
@@ -141,8 +151,8 @@ shots.append(scene("packs", 7.3,
 
 # 6 Slider payoff.
 shots.append(scene("slider", 10.8,
-    titles=[("Drag the budget", 0, 5.2), ("Goal hit at ₹53 a day", 5.2, 10.8)],
-    subs=[("The plate re-optimises as you drag.", 0.3, 5.2), ("79 g top-up: soya, sattu, eggs, peanuts, chana.", 5.4, 10.8)],
+    titles=[("Drag the budget", 0, 6.0), ("Goal hit at ₹53 a day", 6.0, 10.8)],
+    subs=[("The plate re-optimises as you drag.", 0.3, 6.0), ("79 g top-up: soya, sattu, eggs, peanuts, chana.", 6.0, 10.8)],
     video=dict(src="slider.mp4", media_start=0.4, rate=1, start_y=0)))
 
 # 7 Exclude soya.
@@ -169,6 +179,12 @@ shots.append(scene("deploy", 14.1,
     subs=[("Real deploy to Embarko, sped up 3×.", 0.3, 14.1)],
     video=dict(src="deploy.mp4", media_start=0, rate=3, start_y=0, pans=[(3.0, 150, 1.0)])))
 
+# 10b The Embarko experience, over the claimed live app loaded by URL.
+shots.append(scene("kept", 6.0,
+    titles=[("No Dockerfile. No repo.", 0, 3.0), ("Claimed it. It stays live.", 3.0, 6.0)],
+    subs=[("The first deploy needed no account.", 0.3, 3.0), ("One sign-in made it permanent.", 3.1, 6.0)],
+    video=dict(src="live.mp4", media_start=0.4, rate=1, start_y=0)))
+
 # 11 End card.
 end_css = """
 #end-head{position:absolute;left:104px;right:128px;top:300px;display:flex;align-items:center;gap:22px;
@@ -190,6 +206,7 @@ end_css = """
 url = "protein-recharge.embarko.app"
 url_spans = "".join(f'<span class="ch">{esc(c)}</span>' for c in "protein-recharge") + "<br>" + "".join(f'<span class="ch">{esc(c)}</span>' for c in ".embarko.app")
 shots.append(scene("endcard", 7.0, extra_css=end_css,
+    cues=[("Try it free: protein-recharge.embarko.app\n#DeployWithEmbarko", 0, 7.0)],
     body=f"""<div id="end-head" class="clip" data-start="0" data-duration="7">{MARK.format(s=84)}<span>Protein Recharge</span></div>
 <div id="end-v" class="clip" data-start="0" data-duration="7"><div id="end-card">
   <div class="ec-cap">Try it free, on your phone</div>
@@ -235,12 +252,19 @@ fx(1, POP, S["reveal"] + 0.1, 0.8)
 fx(2, W2, S["setup"] - 0.05, 0.45)
 fx(3, W1, S["prompt"] - 0.05, 0.5)
 fx(4, W2, S["endcard"] + 0.05, 0.5)
-fx(5, POP, S["slider"] + 5.2, 0.9)          # "Goal hit" lands
-fx(6, RISE, S["slider"] + 5.2 - 10.03, 0.35)  # riser crests on goal hit
+fx(5, POP, S["slider"] + 6.0, 0.9)          # "Goal hit" lands (footage turns green at 5.97 s)
+fx(6, RISE, S["slider"] + 6.0 - 10.03, 0.35)  # riser crests on goal hit
 fx(7, POP, S["endcard"] + 2.0, 0.8)          # hashtag band
 fx(8, POP, S["deploy"] + 9.6, 0.7)           # "Live"
 for k in range(0, 28, 4):                     # soft ticks while the URL types
     fx(9 + k // 4, CLK, S["endcard"] + 0.55 + k * 0.045, 0.35)
+
+# Optional voiceover recorded by the entrant: drop it at assets/vo.m4a (or .mp3/.wav).
+vo = next((f"assets/{n}" for n in ("vo.m4a", "vo.mp3", "vo.wav") if (ROOT / "assets" / n).exists()), None)
+if vo:
+    sfx.append(f'<audio id="vo" class="clip" src="{vo}" data-start="0" data-track-index="30" data-volume="1"></audio>')
+    sfx[:] = [x.replace('data-volume="', 'data-volume="0.6*') if 'id="fx' in x else x for x in sfx]
+    sfx[:] = [__import__("re").sub(r'data-volume="0\.6\*([0-9.]+)"', lambda m: f'data-volume="{round(0.6*float(m.group(1)),2)}"', x) for x in sfx]
 
 index = f"""<!doctype html>
 <html lang="en">
@@ -268,4 +292,22 @@ index = f"""<!doctype html>
 """
 (ROOT / "index.html").write_text(index)
 json.dump({"total": total, "starts": starts}, open(ROOT / "timing.json", "w"), indent=1)
+
+# Subtitles generated from the same text the film shows.
+def _ts(t):
+    ms = int(round(t * 1000))
+    return f"{ms // 3600000:02}:{ms // 60000 % 60:02}:{ms // 1000 % 60:02},{ms % 1000:03}"
+
+cues = []
+for sid, (titles, subs, extra) in SCENE_TEXT.items():
+    st = starts[sid]
+    for text, a, b in titles:
+        mid = (a + b) / 2
+        sub = next((x for x, sa, sb in subs if sa <= mid < sb), "")
+        cues.append((st + a, st + b, text + ("\n" + sub if sub else "")))
+    for text, a, b in extra:
+        cues.append((st + a, st + b, text))
+cues.sort()
+srt = "\n".join(f"{i + 1}\n{_ts(a)} --> {_ts(b)}\n{t}\n" for i, (a, b, t) in enumerate(cues))
+(ROOT.parent / "exports" / "protein-recharge-demo.srt").write_text(srt)
 print("total", total, starts)

@@ -21,12 +21,15 @@
 #reveal-w1{top:700px}#reveal-w2{top:850px}
 #reveal-sub{position:absolute;left:130px;right:150px;top:1100px;text-align:center;font-weight:700;font-size:46px;line-height:1.25}
 #reveal-sub .in{display:inline-block;clip-path:inset(0 100% 0 0)}
+#reveal-by{position:absolute;left:130px;right:150px;top:1268px;text-align:center;font-weight:600;font-size:36px;color:#14241E}
+#reveal-by .in{display:inline-block;clip-path:inset(0 100% 0 0)}
 </style>
   <div id="root" data-composition-id="reveal" data-width="1080" data-height="1920" style="--g:#FFC21A;">
     <div id="reveal-mark" class="clip" data-start="0" data-duration="3.5"><div id="reveal-mk"><svg viewBox="0 0 32 32" width="220" height="220"><path d="M4 6h24a2 2 0 0 1 2 2v5a3 3 0 0 0 0 6v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5a3 3 0 0 0 0-6V8a2 2 0 0 1 2-2Z" fill="#FFC21A" stroke="#14241E" stroke-width="1.6"/><path d="M11 11h9M11 14.5h9M11 11c4 0 4 7 0 7h-1l7 5" fill="none" stroke="#14241E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
 <div id="reveal-w1" class="rw clip" data-start="0.25" data-duration="3.25"><span class="in">Protein</span></div>
 <div id="reveal-w2" class="rw clip" data-start="0.45" data-duration="3.05"><span class="in">Recharge</span></div>
 <p id="reveal-sub" class="clip" data-start="1.0" data-duration="2.5"><span class="in">Daily protein packs, priced like a phone recharge</span></p>
+<p id="reveal-by" class="clip" data-start="1.5" data-duration="2.0"><span class="in">Built by Siddhant Patil with Claude Code</span></p>
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
@@ -34,6 +37,7 @@
 tl.fromTo("#reveal-w1 .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.34,ease:"power3.out"},0.25);
 tl.fromTo("#reveal-w2 .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.34,ease:"power3.out"},0.45);
 tl.fromTo("#reveal-sub .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.5,ease:"power3.out"},1.0);
+tl.fromTo("#reveal-by .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.45,ease:"power3.out"},1.5);
     window.__timelines["reveal"] = tl;
   </script>
 </template>
