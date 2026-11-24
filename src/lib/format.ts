@@ -37,3 +37,11 @@ export function bulk(food: Food, units: number): string {
   }
   return `${units} ${food.unit}`;
 }
+
+/** Meter text: never show "79 of 79 g" or "0 g short" for a plan that is still short. */
+export function meterText(value: number, need: number): { shown: number; hit: boolean; short: string } {
+  const hit = value + 1e-6 >= need;
+  const gap = need - value;
+  const short = hit ? '' : `${gap < 1 ? (Math.ceil(gap * 10 - 1e-6) / 10).toFixed(1) : Math.ceil(gap - 1e-6)} g short`;
+  return { shown: hit ? Math.round(value) : Math.floor(value), hit, short };
+}

@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, type ReactNode } from 'react';
 import type { Plan } from '../lib/plan';
-import { money, quantity } from '../lib/format';
+import { meterText, money, quantity } from '../lib/format';
 import { Icon } from './Icon';
 
 /* ---------- Voucher: the signature element ---------- */
@@ -25,7 +25,7 @@ export function Voucher({
   size?: 'md' | 'lg';
 }) {
   const pct = need > 0 ? Math.min(100, Math.round((protein / need) * 100)) : 100;
-  const hit = protein + 0.05 >= need;
+  const hit = protein + 1e-6 >= need;
   const Tag = onSelect ? 'button' : 'div';
   return (
     <Tag
@@ -61,12 +61,13 @@ export function Voucher({
 
 export function Meter({ value, need, ceiling }: { value: number; need: number; ceiling: number }) {
   const max = Math.max(ceiling, need, value, 1) * 1.08;
-  const hit = value + 0.05 >= need;
+  const m = meterText(value, need);
+  const hit = m.hit;
   return (
     <div className={`meter${hit ? ' is-hit' : ''}`}>
       <div className="meter__head">
         <span className="meter__value">
-          {Math.round(value)}
+          {m.shown}
           <span className="meter__of"> of {Math.round(need)} g</span>
         </span>
         <span className="meter__status" role="status">
@@ -75,7 +76,7 @@ export function Meter({ value, need, ceiling }: { value: number; need: number; c
               <Icon name="check" size={18} /> Goal hit
             </>
           ) : (
-            `${Math.round(need - value)} g short`
+            m.short
           )}
         </span>
       </div>

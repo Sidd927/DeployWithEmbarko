@@ -88,7 +88,8 @@ export function makePlanner(
   const foods = availableFoods(profile, excluded);
   const items: OptItem[] = foods.map((f) => ({
     id: f.id,
-    protein: Math.round(stepProtein(f) * 10),
+    // floor, never round: the optimiser's "goal reached" must hold for the real (unrounded) protein
+    protein: Math.floor(stepProtein(f) * 10 + 1e-9),
     cost: unitPrice(f, effectivePack(f, prices)) * f.step,
     maxSteps: f.maxSteps,
     minSteps: pinned.includes(f.id) ? 1 : 0,
