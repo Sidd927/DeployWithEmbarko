@@ -16,3 +16,11 @@ video/footage/*.mp4
 *.pem
 *.key
 credentials
+
+# Personal voice data: never commit (recordings, clone profile, generated narration)
+video/voiceover/private/
+video/hf/assets/vo*.wav
+video/hf/assets/vo*.m4a
+video/hf/assets/vo*.mp3
+video/hf/assets/vo/
+video/exports/protein-recharge-final-voiced-9x16.mp4

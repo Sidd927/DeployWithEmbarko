@@ -259,12 +259,28 @@ fx(8, POP, S["deploy"] + 9.6, 0.7)           # "Live"
 for k in range(0, 28, 4):                     # soft ticks while the URL types
     fx(9 + k // 4, CLK, S["endcard"] + 0.55 + k * 0.045, 0.35)
 
-# Optional voiceover recorded by the entrant: drop it at assets/vo.m4a (or .mp3/.wav).
-vo = next((f"assets/{n}" for n in ("vo.m4a", "vo.mp3", "vo.wav") if (ROOT / "assets" / n).exists()), None)
-if vo:
-    sfx.append(f'<audio id="vo" class="clip" src="{vo}" data-start="0" data-track-index="30" data-volume="1"></audio>')
-    sfx[:] = [x.replace('data-volume="', 'data-volume="0.6*') if 'id="fx' in x else x for x in sfx]
-    sfx[:] = [__import__("re").sub(r'data-volume="0\.6\*([0-9.]+)"', lambda m: f'data-volume="{round(0.6*float(m.group(1)),2)}"', x) for x in sfx]
+# Optional narration (kept local, git-ignored): assets/vo/manifest.json lists
+# [{"file": "vo/seg01.wav", "start": 0.2, "duration": 4.1}, ...] produced by video/voiceover/make_vo.py.
+# With narration present, effects sit under the voice, except the two pops that land in silent gaps.
+import re as _re
+VO_MANIFEST = ROOT / "assets" / "vo" / "manifest.json"
+VOICED = VO_MANIFEST.exists() and __import__("os").environ.get("HF_NO_VO") != "1"
+if VOICED:
+    segs = json.loads(VO_MANIFEST.read_text())
+    keep_loud = {"fx5", "fx8"}  # "Goal hit" pop and "Live" pop sit in narration gaps
+
+    def _duck(tag):
+        fid = _re.search(r'id="(fx\d+)"', tag).group(1)
+        if fid in keep_loud:
+            return tag
+        return _re.sub(r'data-volume="([0-9.]+)"', lambda m: f'data-volume="{round(float(m.group(1)) * 0.45, 3)}"', tag)
+
+    sfx[:] = [_duck(x) for x in sfx]
+    for i, seg in enumerate(segs):
+        sfx.append(
+            f'<audio id="vo{i + 1:02d}" class="clip" src="assets/{seg["file"]}" data-start="{seg["start"]}" '
+            f'data-duration="{seg["duration"]}" data-track-index="{40 + i}" data-volume="1"></audio>'
+        )
 
 index = f"""<!doctype html>
 <html lang="en">
@@ -310,4 +326,13 @@ for sid, (titles, subs, extra) in SCENE_TEXT.items():
 cues.sort()
 srt = "\n".join(f"{i + 1}\n{_ts(a)} --> {_ts(b)}\n{t}\n" for i, (a, b, t) in enumerate(cues))
 (ROOT.parent / "exports" / "protein-recharge-demo.srt").write_text(srt)
+
+if VOICED:  # subtitles that match the spoken words (NarraReel word timings, offset to each segment)
+    vcues = []
+    for seg in segs:
+        for c in seg.get("cues", []):
+            vcues.append((seg["start"] + c["start"], seg["start"] + c["end"], c["text"]))
+    vcues.sort()
+    vsrt = "\n".join(f"{i + 1}\n{_ts(a)} --> {_ts(b)}\n{t}\n" for i, (a, b, t) in enumerate(vcues))
+    (ROOT.parent / "voiceover" / "protein-recharge-final-voiced.srt").write_text(vsrt)
 print("total", total, starts)

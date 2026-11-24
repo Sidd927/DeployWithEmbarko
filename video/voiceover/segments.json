@@ -1,0 +1,16 @@
+[
+  {"id": "01", "start": 0.20,  "end": 4.90,  "text": "Hi, I'm Siddhant. Quick question for everyone living on mess food."},
+  {"id": "02", "start": 5.20,  "end": 10.30, "text": "Dal, rice and roti only cover part of it. The rest is a gap."},
+  {"id": "03", "start": 10.75, "end": 13.90, "text": "So I built Protein Recharge."},
+  {"id": "04", "start": 14.20, "end": 23.60, "text": "You answer five quick questions, including the ones other apps skip: do you have a kettle, and how many mess meals do you eat?"},
+  {"id": "05", "start": 24.00, "end": 30.90, "text": "Then pick a daily pack, like a mobile recharge. Each one is mathematically the cheapest mix."},
+  {"id": "06a", "start": 31.30, "end": 36.70, "text": "Now drag the budget, and watch the whole plate rebuild as you go."},
+  {"id": "06b", "start": 37.50, "end": 41.70, "text": "That's the lowest price that actually hits the target."},
+  {"id": "07", "start": 42.10, "end": 50.50, "text": "Don't like something? Skip it, and it re-plans instantly. You can even type in what your local shop charges."},
+  {"id": "08", "start": 50.90, "end": 56.00, "text": "And it turns the plan into a weekly shopping list."},
+  {"id": "09", "start": 56.40, "end": 61.70, "text": "To put it online, I copied one prompt from Embarko's website."},
+  {"id": "10", "start": 62.10, "end": 71.20, "text": "Pasted it into Claude Code. It packed the app, uploaded it, and kept checking the status. This is the real deploy, sped up."},
+  {"id": "10b", "start": 72.60, "end": 75.80, "text": "Live in under a minute."},
+  {"id": "11", "start": 76.20, "end": 81.80, "text": "No Dockerfile. No repo. One sign-in, and it's mine to keep."},
+  {"id": "12", "start": 82.30, "end": 88.80, "text": "Try it free at protein recharge dot embarko dot app. Hashtag Deploy With Embarko."}
+]
