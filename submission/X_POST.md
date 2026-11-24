@@ -1,8 +1,10 @@
 # X (Twitter)
 
-**Attach:** `video/exports/protein-recharge-demo-9x16.mp4` (X accepts up to 2:20 on free accounts, and this is 83 s).
+**Attach:** `video/exports/protein-recharge-demo-9x16.mp4` (X accepts up to 2:20 on free accounts, and this is 89 s).
 
 ## Main post (≤ 280 chars)
+> Personal line ("I need ~110 g"): keep it only if it's true. Neutral version: "Hostel mess food gives ~30 g protein a day. A 68 kg gym-goer needs ~110 g."
+
 Hostel mess food gives ~30 g protein a day. I need ~110 g.
 
 So I built Protein Recharge: it finds the exact cheapest foods to close the gap, around your mess, kettle and budget.

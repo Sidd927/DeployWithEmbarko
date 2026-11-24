@@ -38,8 +38,23 @@ Not fixable from the app: cache TTL headers (set by Embarko), and the render-blo
 | 9 | Low | ARIA prohibited attribute, invalid robots.txt | Lighthouse | Fixed and redeployed |
 
 ## Video
-`hyperframes check`: **0 errors** (lint, runtime, layout, contrast 40/40, craft, audio). Duration 83.0 s. 1080 × 1920 @30. -18.6 LUFS integrated, -4.1 dBFS peak. Snapshots reviewed at 13 timestamps.
+`hyperframes check`: **0 errors** (lint, runtime, layout, contrast 40/40, craft, audio). Duration 89.0 s (after the post-claim revision). 1080 × 1920 @30. -18.6 LUFS integrated, -4.1 dBFS peak. Snapshots reviewed at 13 timestamps.
+
+## Post-claim verification (24 Nov, after the entrant claimed the app)
+| Check | Result |
+|---|---|
+| `GET /` on the live URL | 200, 0.29 s |
+| Embarko "will be deleted" banner | Gone (claimed). Badge still injected, and the tab bar still reserves its slot |
+| Live e2e, Chromium (Android, iPhone, desktop) | **31 passed, 2 skipped** |
+| Live e2e, **WebKit** (iPhone 13, Safari engine 27.2) | **9 passed, 1 failed, 1 skipped**. The failure is `grantPermissions: Unknown permission: clipboard-write`, a WebKit test-harness limitation, not an app defect |
+| WebKit visual check | Voucher notches (CSS mask), badge slot and layout identical to Chromium |
+| Unit | **17 passed** (adds the meter regression test, which fails on the old code and passes on the fix) |
+
+## Bug found after the claim
+| # | Severity | Bug | Found by | Status |
+|---|---|---|---|---|
+| 10 | Medium | Meter showed "79 of 79 g · 0 g short" for a 78.8 g plan (rounding in the display) | Frame-by-frame review of the video | Fixed in source and tested. **Not deployed:** needs the entrant's Embarko key |
 
 ## Not tested
-- Real physical phones. Emulation only (Chromium with mobile metrics). **Safari/WebKit was not run.** The CSS `mask` notch uses both `-webkit-mask` and `mask`, and `:has()` is supported from iOS 15.4, but neither is verified on a real iPhone.
+- Real physical phones. Emulation only. WebKit (Safari's engine) was run after the claim, see above. The CSS `mask` notch uses both `-webkit-mask` and `mask`, and `:has()` is supported from iOS 15.4, but neither is verified on a real iPhone.
 - The video hasn't been listened to by a human.

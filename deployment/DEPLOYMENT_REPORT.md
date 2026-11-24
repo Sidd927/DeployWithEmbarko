@@ -10,7 +10,7 @@
 | App kind | `service`: Embarko detected Vite, ran `npm install` + `npm run build`, and serves `dist/` |
 | First deploy | 24 Nov 2026, 04:13 UTC (09:43 IST). Status `building` → `live` in about 40 s |
 | Redeploys | #2 (badge-aware tab bar), status `live`, deploy `success` |
-| **Claimed / kept** | **NOT YET.** `claimed: false`, `expiresAt: 2026-11-25T04:13:39Z` (**25 Nov, 09:43 IST**). Needs the entrant (see below) |
+| **Claimed / kept** | **YES.** Claimed by the entrant on 24 Nov 2026. The Embarko dashboard shows protein-recharge **Live, Public, permanent**, retained in the entrant's account |
 
 ## Exact procedure used
 1. Read `https://embarko.ai/docs/quickstart.md`, `prerequisites.md`, `deploy.md`, `static-sites.md`, `claim.md` and `data.md`.
@@ -39,7 +39,21 @@ The rules say to accept the keep offer, or the app is deleted after 24 hours. Bo
 - **A. Claim link** (from the first deploy reply): open it and sign in to Embarko. The app moves into your account with no redeploy. *(The link was given to the entrant privately and is not stored in this repo.)*
 - **B. Embarko key by email:** `POST /api/public/deploy-tokens/request {"email": …}`. Embarko emails a key, the entrant pastes it, and Claude redeploys with `Authorization: Bearer` to get `claimed: true`. Route B also lets Claude Code keep redeploying updates.
 
-**Status: waiting on the entrant.** After claiming, run `GET /apps/protein-recharge/status` (with the key) and confirm `claimed: true`. Then update this section.
+**Status: claimed (24 Nov 2026).** Evidence:
+1. The entrant's Embarko dashboard: protein-recharge **Live · Public · permanent** (reported by the entrant; treated as authoritative).
+2. The live page no longer carries Embarko's `#__embarko_orphan_banner` ("will be deleted in N hours"), checked in the browser after the claim.
+3. `GET https://ship.embarko.ai/apps/protein-recharge/status` without a key now returns **404 not_found**. Per https://embarko.ai/docs/claim.md, "a claimed app answers 404 without it", so this is expected. **It doesn't mean the app is down:** `GET https://protein-recharge.embarko.app/` returns 200, and 31/31 journeys passed live after the claim.
+
+## Pending update (not deployed)
+Commit `fix(meter)` corrects a **display** bug. While dragging the budget, a plan holding 78.8 g showed "79 of 79 g · 0 g short". It now shows "78 of 79 g · 0.2 g short". The optimiser itself was verified to be correct (old and new code return identical plans, and the ₹53 goal plan holds 79.1 g). Tested: 17 unit, 31 e2e locally.
+- **Why it's worth deploying:** it sits in the app's main interaction (the budget slider). A judge dragging past ₹50–52 sees a contradictory red "0 g short".
+- **Needs:** your Embarko key, because the app is claimed. Redeploys over HTTP need `Authorization: Bearer`.
+- **Secure key workflow:** create a key at https://embarko.ai/app/settings/developer (personal key), then run this in your own terminal. It saves the key without showing it on screen or in chat:
+  ```bash
+  mkdir -p ~/.embarko && (umask 077; read -rs "k?Embarko key: " && printf '%s\n' "$k" > ~/.embarko/credentials)
+  ```
+  Tell Claude "key saved". Claude reads it from that file, redeploys with `--oauth2-bearer`, verifies, and never prints it.
+- **Risk:** low. It's a same-name redeploy of a tested build. If anything breaks, Embarko's rollback (https://embarko.ai/docs/rollback.md) puts the previous version back without a rebuild.
 
 ## Known limitations
 - Data lives in each visitor's localStorage. It is private, but it doesn't sync across devices (documented in the UI copy: "Everything stays on your phone").

@@ -21,14 +21,14 @@ const mark = (s) => `<svg viewBox="0 0 32 32" width="${s}" height="${s}"><path d
 
 const yt = `<html><head><style>${css}
 .w{width:1280px;height:720px;padding:56px 64px;display:grid;grid-template-columns:1fr 520px;gap:48px;align-items:center}
-h1{font-size:104px}.q{font-family:B;font-weight:800;font-size:44px;margin-top:22px;letter-spacing:-.02em}
+h1{font-size:104px}.by{margin-top:14px;font-size:26px;font-weight:700;color:#4D5D57}.q{font-family:B;font-weight:800;font-size:44px;margin-top:22px;letter-spacing:-.02em}
 .b{display:flex;gap:14px;align-items:center;font-family:B;font-weight:800;font-size:32px;margin-bottom:26px}
 .v{padding:30px 34px 0}.cap{font-size:28px}.price{font-size:170px;margin-top:6px}.pr{font-size:32px;margin:12px 0 26px}.pr b{font-family:B;font-size:40px}
 .band{margin:0 -34px;padding:22px 34px;font-size:30px}
 </style></head><body><div class="w"><div>
 <div class="b">${mark(52)}Protein Recharge</div>
 <h1>Hostel mess food. Enough protein?</h1>
-<p class="q">I built the cheapest fix.</p></div>
+<p class="q">I built the cheapest fix.</p><p class="by">by Siddhant Patil · live on Embarko</p></div>
 <div class="v"><div class="cap">Cheapest to hit goal</div><div class="price"><sup>₹</sup>53<small>/day</small></div>
 <div class="pr"><b>79 g</b> protein top-up</div><div class="perf"></div><div class="band">Goal covered. No stove needed.</div></div></div></body></html>`;
 
@@ -38,13 +38,13 @@ const cover = `<html><head><style>${css}
 h1{font-size:132px}
 .v{margin-top:70px;padding:44px 48px 0}.cap{font-size:40px}.price{font-size:250px;margin-top:10px}.pr{font-size:46px;margin:18px 0 36px}.pr b{font-family:B;font-size:58px}
 .band{margin:0 -48px;padding:34px 48px;font-size:46px}
-.tag{margin-top:46px;font-family:B;font-weight:800;font-size:52px;letter-spacing:-.02em}
+.by{margin-top:14px;font-size:38px;font-weight:700;color:#4D5D57}.tag{margin-top:46px;font-family:B;font-weight:800;font-size:52px;letter-spacing:-.02em}
 </style></head><body><div class="w">
 <div class="b">${mark(76)}Protein Recharge</div>
 <h1>Hostel mess food. Enough protein?</h1>
 <div class="v"><div class="cap">Cheapest to hit goal</div><div class="price"><sup>₹</sup>53<small>/day</small></div>
 <div class="pr"><b>79 g</b> protein top-up</div><div class="perf"></div><div class="band">Goal covered</div></div>
-<p class="tag">#DeployWithEmbarko</p></div></body></html>`;
+<p class="tag">#DeployWithEmbarko</p><p class="by">by Siddhant Patil · live on Embarko</p></div></body></html>`;
 
 const dir = resolve(tmpdir(), 'pr-thumbs');
 mkdirSync(dir, { recursive: true });
