@@ -53,7 +53,7 @@ Not fixable from the app: cache TTL headers (set by Embarko), and the render-blo
 ## Bug found after the claim
 | # | Severity | Bug | Found by | Status |
 |---|---|---|---|---|
-| 10 | Medium | Meter showed "79 of 79 g · 0 g short" for a 78.8 g plan (rounding in the display) | Frame-by-frame review of the video | Fixed in source and tested. **Not deployed:** needs the entrant's Embarko key |
+| 10 | Medium | Meter showed "79 of 79 g · 0 g short" for a 78.8 g plan (rounding in the display) | Frame-by-frame review of the video | **Fixed and deployed** (deploy #5). Unit regression plus e2e regression; **34/34 live Chromium, WebKit 10 passed** |
 
 ## Not tested
 - Real physical phones. Emulation only. WebKit (Safari's engine) was run after the claim, see above. The CSS `mask` notch uses both `-webkit-mask` and `mask`, and `:has()` is supported from iOS 15.4, but neither is verified on a real iPhone.

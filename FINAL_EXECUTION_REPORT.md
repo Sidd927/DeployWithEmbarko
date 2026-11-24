@@ -9,7 +9,7 @@ Legend: **COMPLETED** (done) · **VERIFIED** (done and checked with evidence) ·
 - Evidence of the claim: your dashboard; Embarko's "will be deleted" banner has disappeared from the live page; the keyless status call returns 404, which Embarko's claim docs say is what a claimed app does.
 - Live checks after the claim: `GET /` returns 200 in 0.29 s. **31/31 journeys pass on Chromium** (Android 360, iPhone 390, desktop 1280). **9/10 pass on WebKit** (Safari's engine); the one failure is a WebKit test-harness clipboard-permission limit, not the app. WebKit renders identically.
 - Lighthouse (mobile, live): Performance 97, Accessibility 95, Best Practices 100, SEO 91 (measured before the a11y/robots fixes, not re-run).
-- Live app unchanged since the claim. No deploy was attempted, and nothing was made private or removed.
+- **Deploy #5 (meter fix) shipped with your existing Embarko key.** The key was validated read-only first, never printed or committed. Live, `claimed: true`, 34/34 live e2e. Nothing was made private or removed.
 
 ## 2. GitHub repository: VERIFIED
 **https://github.com/Sidd927/DeployWithEmbarko** (public), branch `main`.
@@ -22,7 +22,7 @@ Legend: **COMPLETED** (done) · **VERIFIED** (done and checked with evidence) ·
 | `a43a236` | QA plan, results, audit; Embarko deployment report |
 | `dfec4fb` | Demo video, HyperFrames source, footage capture, scripts |
 | `cc06cff` | Submission package, social drafts, README, status |
-| `ce4b500` | fix(meter): never show "79 of 79 g · 0 g short" (**not deployed**) |
+| `ce4b500` | fix(meter): never show "79 of 79 g · 0 g short" (**deployed 24 Nov, deploy #5**) |
 | `083cc34` | Revised demo video (89 s) |
 | `f3c1771` | Docs for claimed app, registration rules, revised video |
 | _latest_ | This report and PROJECT_STATUS (the hash is given in the closing message and in `git log`) |
@@ -34,13 +34,13 @@ Legend: **COMPLETED** (done) · **VERIFIED** (done and checked with evidence) ·
 ## 5. Test results: VERIFIED
 17 unit tests (including 600 brute-force optimiser checks and a regression test that fails on the old meter code), 31 e2e × 3 devices (locally and live), WebKit live run 9/10 (see §1). Details: `qa/TEST_RESULTS.md`.
 
-**Defect found during this pass:** while dragging the budget past ₹50–52, the meter showed a 78.8 g plan as "79 of 79 g · 0 g short" in red. **Fixed in source (`ce4b500`) and tested, but NOT DEPLOYED.** A claimed app needs your Embarko key to redeploy. I first suspected the optimiser and checked it: old and new code return identical plans, and the ₹53 goal plan genuinely holds 79.1 g. The bug was display-only.
+**Defect found and fixed:** while dragging past ₹50–52 the meter showed a 78.8 g plan as "79 of 79 g · 0 g short". It was display-only; the optimiser was verified correct. Fixed (`ce4b500`), **deployed with your key, and verified live** (34/34 Chromium including a new regression test, WebKit 10 passed).
 
-## 6. Video status: COMPLETED (one optional re-render after the fix is deployed)
+## 6. Video status: COMPLETED
 - 89.0 s, 1080 × 1920, H.264/AAC. Decodes cleanly. -18.6 LUFS, -4.1 dBFS peak. `hyperframes check` 0 errors.
 - Added this pass: creator credit, a beat on the Embarko experience and the claim (fresh capture of the claimed app), slider recaptured to land exactly on ₹53, and the "Goal hit" title synced to the green frame (pixel-detected).
 - Requirements table: `video/FINAL_VIDEO.md`. All met, **except a spoken or on-camera self-introduction, which only you can provide**. The voiceover script is ready.
-- Known blemish: about 0.6 s mid-drag shows the old "0 g short" text from the live app. It clears after deploying the fix and recapturing (one command).
+- The slider clip was recaptured from the fixed live app and the video re-rendered. The mid-drag frames now read honestly ("78 of 79 g · 0.2 g short" → "Goal hit").
 - Not done: a human listening pass.
 
 ## 7. Video location
@@ -66,7 +66,7 @@ No submission was made. It needs your registrations, a public post, and your aut
 
 ## 13. Remaining actions, in order
 1. **Register on Unstop before 30 Nov 3:30 PM IST**, then on Embarko with the same email and phone, and confirm the email. *(you)*
-2. *(Recommended)* Save an Embarko key with the one-line command in `deployment/DEPLOYMENT_REPORT.md` and tell Claude "key saved". Claude then deploys the meter fix, re-verifies live, recaptures the slider clip and re-renders the video. *(you, then Claude)*
+2. ~~Deploy the meter fix~~ ✅ done (deploy #5, verified live).
 3. Watch the video with sound. Optionally record the voiceover (`VOICEOVER_SCRIPT.md`) and add licensed music in the platform editor. *(you)*
 4. Publish the Instagram Reel, YouTube Short and X post, public, each with #DeployWithEmbarko and the app link. *(you)*
 5. Submit the app link plus all post links and tick the three checks. Claude can walk through the form with you, but only you can authorise the final submit. *(you)*

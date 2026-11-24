@@ -9,7 +9,7 @@
 | App id | `cmwu6jjed0h4ingfffkiaktph` (saved in `embarko.json` as `appId`) |
 | App kind | `service`: Embarko detected Vite, ran `npm install` + `npm run build`, and serves `dist/` |
 | First deploy | 24 Nov 2026, 04:13 UTC (09:43 IST). Status `building` → `live` in about 40 s |
-| Redeploys | #2 (badge-aware tab bar), status `live`, deploy `success` |
+| Redeploys | #2 badge-aware tab bar · #3 video-capture redeploy · #4 a11y/robots · **#5 meter fix (claimed, with key)**. All `live` / `success` |
 | **Claimed / kept** | **YES.** Claimed by the entrant on 24 Nov 2026. The Embarko dashboard shows protein-recharge **Live, Public, permanent**, retained in the entrant's account |
 
 ## Exact procedure used
@@ -44,16 +44,12 @@ The rules say to accept the keep offer, or the app is deleted after 24 hours. Bo
 2. The live page no longer carries Embarko's `#__embarko_orphan_banner` ("will be deleted in N hours"), checked in the browser after the claim.
 3. `GET https://ship.embarko.ai/apps/protein-recharge/status` without a key now returns **404 not_found**. Per https://embarko.ai/docs/claim.md, "a claimed app answers 404 without it", so this is expected. **It doesn't mean the app is down:** `GET https://protein-recharge.embarko.app/` returns 200, and 31/31 journeys passed live after the claim.
 
-## Pending update (not deployed)
-Commit `fix(meter)` corrects a **display** bug. While dragging the budget, a plan holding 78.8 g showed "79 of 79 g · 0 g short". It now shows "78 of 79 g · 0.2 g short". The optimiser itself was verified to be correct (old and new code return identical plans, and the ₹53 goal plan holds 79.1 g). Tested: 17 unit, 31 e2e locally.
-- **Why it's worth deploying:** it sits in the app's main interaction (the budget slider). A judge dragging past ₹50–52 sees a contradictory red "0 g short".
-- **Needs:** your Embarko key, because the app is claimed. Redeploys over HTTP need `Authorization: Bearer`.
-- **Secure key workflow:** create a key at https://embarko.ai/app/settings/developer (personal key), then run this in your own terminal. It saves the key without showing it on screen or in chat:
-  ```bash
-  mkdir -p ~/.embarko && (umask 077; read -rs "k?Embarko key: " && printf '%s\n' "$k" > ~/.embarko/credentials)
-  ```
-  Tell Claude "key saved". Claude reads it from that file, redeploys with `--oauth2-bearer`, verifies, and never prints it.
-- **Risk:** low. It's a same-name redeploy of a tested build. If anything breaks, Embarko's rollback (https://embarko.ai/docs/rollback.md) puts the previous version back without a rebuild.
+## Deploy #5: meter fix (24 Nov 2026), with the entrant's Embarko key
+- Key: an existing personal Embarko key saved by the entrant to `~/.embarko/credentials` (`-rw-------`, in a `drwx------` directory). It was read only inside commands, never printed, logged or committed. Validated first with a read-only authenticated status call: HTTP 200, `live`, `claimed: true`.
+- Shipped commit `ce4b500` (fix(meter)), from tree `b9218df`. It's a same-name redeploy with `--oauth2-bearer` and `X-App-Id`. Reply: `success: true, action: updated, claimed: true`. Status went `building` ×5 → `live` / deploy `success`, and the app is still claimed.
+- What changed for users: while dragging the budget, a 78.8 g plan now reads "78 of 79 g · 0.2 g short" instead of the contradictory "79 of 79 g · 0 g short". The optimiser's plans are unchanged (₹53 goal plan, 79.1 g).
+- Verified live: `GET /` returns 200. **34/34 Chromium e2e pass** (Android, iPhone, desktop), including the new regression "meter is honest just below the goal". **WebKit 10 passed**; the one failure is the known test-harness clipboard-permission limit.
+- Rollback, if ever needed: https://embarko.ai/docs/rollback.md, which puts the previous version back without a rebuild.
 
 ## Known limitations
 - Data lives in each visitor's localStorage. It is private, but it doesn't sync across devices (documented in the UI copy: "Everything stays on your phone").

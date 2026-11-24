@@ -111,6 +111,17 @@ test('budget slider re-optimises the plate', async ({ page }) => {
   await expect(page.locator('.meter__status')).toContainText('Goal hit');
 });
 
+test('meter is honest just below the goal (regression: "79 of 79 g · 0 g short")', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Open a sample plan' }).click();
+  await page.locator('.budget input[type=range]').fill('52');
+  await expect(page.locator('.meter__status')).toHaveText('0.2 g short');
+  await expect(page.locator('.meter__value')).toContainText('78');
+  await page.locator('.budget input[type=range]').fill('53');
+  await expect(page.locator('.meter__status')).toContainText('Goal hit');
+  await expect(page.locator('.meter__value')).toContainText('79');
+});
+
 test('packs select a budget', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Open a sample plan' }).click();

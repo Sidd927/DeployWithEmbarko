@@ -14,12 +14,12 @@ Finalisation. App claimed and verified, code and assets on GitHub, video revised
 | App live and claimed | VERIFIED |
 | GitHub push | VERIFIED |
 | Tests (unit, e2e live, WebKit) | VERIFIED |
-| Meter display fix | COMPLETED in source, **not deployed** (needs Embarko key) |
-| Video (89 s), subtitles, thumbnails, VO script | COMPLETED (optional re-render after the fix) |
+| Meter display fix | VERIFIED: deployed with your key (deploy #5), 34/34 live e2e |
+| Video (89 s), subtitles, thumbnails, VO script | COMPLETED (re-rendered with the fixed live footage) |
 | Registration on Unstop and Embarko | AWAITING YOU |
 | Instagram / YouTube / X posts | PREPARED, not published |
 | Bonus writing posts | PREPARED, not published |
 | Official submission | PREPARED, not submitted |
 
 ## Maintenance rule until results
-Keep the app public. Don't delete or lock it. After the optional meter-fix deploy, make no further app changes.
+Keep the app public. Don't delete or lock it. **The final version is deployed (#5): make no further app changes before results.**

@@ -14,7 +14,7 @@
 ## Encoded-file checks (run on the final MP4, 24 Nov)
 - ffprobe: h264 1080 × 1920 @30, aac, **89.000 s**.
 - Full decode (`ffmpeg -v error -f null`): no errors.
-- Loudness (EBU R128): **-18.6 LUFS** integrated, **-4.1 dBFS** peak.
+- Loudness (EBU R128): **-18.6 LUFS** integrated, **-4.4 dBFS** peak.
 - Loudest hit at about 37 s ("Goal hit" pop and riser crest), aligned with the frame where the app's meter turns green (detected by pixel analysis at 5.97 s into the scene).
 - Frames reviewed at 0, 12.6, 36.5, 37.2, 40, 75, 78, 84 and 88.5 s.
 - `hyperframes check`: **0 errors**.
@@ -41,8 +41,10 @@
 4. Subtitles are now generated from the film's own text.
 5. `build.py` mixes in `assets/vo.m4a` automatically if you record one, and lowers the effects to 60%.
 
+## Fixed after the meter deploy
+- The slider clip was recaptured from the fixed live app. Mid-drag it now reads "72 of 79 g · 7 g short" → "78 of 79 g · 0.2 g short" → "79 · Goal hit", landing as the title switches (green frame re-measured at the same 6.367 s). Re-rendered: 89.0 s, decodes clean, -18.6 LUFS, -4.4 dBFS peak, check 0 errors.
+
 ## Known limitation
-- For about 0.6 s at 36.4 s, mid-drag, the live app briefly shows "79 of 79 g · 0 g short". That's the display bug fixed in commit `meter` (see DEPLOYMENT_REPORT.md), **not yet deployed** because it needs your Embarko key. After deploying, run `node scripts/capture.mjs slider`, copy the result into `video/hf/assets/footage/`, and re-render. That makes this frame read "78 of 79 g · 0.2 g short".
 - No music bed. Add one from Instagram or YouTube's licensed library when posting, or sign in to HyperFrames for its catalogue.
 
 ## Authenticity
