@@ -1,0 +1,35 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:var(--g,#E6EAEA);color:#14241E;font-family:'Figtree',sans-serif}
+.t{position:absolute;left:104px;right:128px;top:312px;margin:0;font-family:'Bricolage',sans-serif;font-weight:800;
+   font-size:80px;line-height:1.0;letter-spacing:-0.03em;font-variation-settings:'opsz' 96}
+.t .in{display:block;clip-path:inset(0 100% 0 0)}
+.s{position:absolute;left:106px;right:128px;top:508px;margin:0;font-weight:600;font-size:38px;line-height:1.25;color:#4D5D57}
+.s .in{display:block;clip-path:inset(0 100% 0 0)}
+.win{position:absolute;left:60px;top:636px;width:960px;height:1124px;border:4px solid #14241E;border-radius:44px;
+     overflow:hidden;background:#fff}
+.pan{position:absolute;left:0;top:0;width:952px}
+.pan video{display:block;width:952px;height:auto}
+</style>
+  <div id="root" data-composition-id="slider" data-width="1080" data-height="1920" style="">
+    <h1 id="slider-t0" class="t clip" data-start="0" data-duration="5.2"><span class="in">Drag the budget</span></h1>
+<h1 id="slider-t1" class="t clip" data-start="5.2" data-duration="5.6"><span class="in">Goal hit at ₹53 a day</span></h1>
+<p id="slider-s0" class="s clip" data-start="0.3" data-duration="4.9"><span class="in">The plate re-optimises as you drag.</span></p>
+<p id="slider-s1" class="s clip" data-start="5.4" data-duration="5.4"><span class="in">79 g top-up: soya, sattu, eggs, peanuts, chana.</span></p>
+<div class="win" id="slider-win"><div class="pan" id="slider-pan" data-layout-allow-overflow><video id="slider-v" class="clip" src="assets/footage/slider.mp4" data-start="0" data-duration="10.8" data-media-start="0.4" data-playback-rate="1" data-track-index="2" muted playsinline></video></div></div>
+
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#slider-t0 .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.34,ease:"power3.out"},0);
+tl.fromTo("#slider-t1 .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.34,ease:"power3.out"},5.2);
+tl.fromTo("#slider-s0 .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.4,ease:"power3.out"},0.42);
+tl.fromTo("#slider-s1 .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.4,ease:"power3.out"},5.5200000000000005);
+tl.set("#slider-pan",{y:0},0);
+
+    window.__timelines["slider"] = tl;
+  </script>
+</template>

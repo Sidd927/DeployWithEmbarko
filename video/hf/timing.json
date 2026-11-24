@@ -1,0 +1,16 @@
+{
+ "total": 83.0,
+ "starts": {
+  "hook": 0.0,
+  "gap": 5.0,
+  "reveal": 10.5,
+  "setup": 14.0,
+  "packs": 23.8,
+  "slider": 31.1,
+  "exclude": 41.9,
+  "list": 50.7,
+  "prompt": 56.2,
+  "deploy": 61.9,
+  "endcard": 76.0
+ }
+}

@@ -1,0 +1,50 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:var(--g,#E6EAEA);color:#14241E;font-family:'Figtree',sans-serif}
+.t{position:absolute;left:104px;right:128px;top:312px;margin:0;font-family:'Bricolage',sans-serif;font-weight:800;
+   font-size:80px;line-height:1.0;letter-spacing:-0.03em;font-variation-settings:'opsz' 96}
+.t .in{display:block;clip-path:inset(0 100% 0 0)}
+.s{position:absolute;left:106px;right:128px;top:508px;margin:0;font-weight:600;font-size:38px;line-height:1.25;color:#4D5D57}
+.s .in{display:block;clip-path:inset(0 100% 0 0)}
+.win{position:absolute;left:60px;top:636px;width:960px;height:1124px;border:4px solid #14241E;border-radius:44px;
+     overflow:hidden;background:#fff}
+.pan{position:absolute;left:0;top:0;width:952px}
+.pan video{display:block;width:952px;height:auto}
+
+#end-head{position:absolute;left:104px;right:128px;top:300px;display:flex;align-items:center;gap:22px;
+          font-family:'Bricolage',sans-serif;font-weight:800;font-size:58px;letter-spacing:-.02em}
+#end-v{position:absolute;left:100px;width:840px;top:430px;height:800px}
+#end-card{position:absolute;inset:0;background:#FFC21A;border:6px solid #14241E;border-radius:44px;overflow:hidden;
+  -webkit-mask:radial-gradient(circle at left 512px,transparent 26px,#000 27px),radial-gradient(circle at right 512px,transparent 26px,#000 27px);
+  -webkit-mask-composite:source-in}
+.ec-cap{position:absolute;left:56px;top:52px;font-weight:800;font-size:40px}
+.ec-url{position:absolute;left:52px;right:40px;top:120px;font-family:'Bricolage',sans-serif;font-weight:800;font-size:86px;
+        line-height:1.02;letter-spacing:-.04em;font-variation-settings:'opsz' 96;white-space:nowrap}
+.ec-url span{opacity:0}
+.ec-note{position:absolute;left:56px;right:56px;top:380px;font-weight:600;font-size:40px;line-height:1.3}
+.ec-perf{position:absolute;left:56px;right:56px;top:504px;border-top:5px dashed rgba(20,36,30,.55)}
+.ec-band{position:absolute;left:0;right:0;bottom:0;height:270px;background:#14241E;color:#FFC21A;display:flex;align-items:center;
+         padding:0 56px;font-family:'Bricolage',sans-serif;font-weight:800;font-size:68px;letter-spacing:-.03em}
+.ec-band .in{display:block;clip-path:inset(0 100% 0 0)}
+</style>
+  <div id="root" data-composition-id="endcard" data-width="1080" data-height="1920" style="">
+    <div id="end-head" class="clip" data-start="0" data-duration="7"><svg viewBox="0 0 32 32" width="84" height="84"><path d="M4 6h24a2 2 0 0 1 2 2v5a3 3 0 0 0 0 6v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5a3 3 0 0 0 0-6V8a2 2 0 0 1 2-2Z" fill="#FFC21A" stroke="#14241E" stroke-width="1.6"/><path d="M11 11h9M11 14.5h9M11 11c4 0 4 7 0 7h-1l7 5" fill="none" stroke="#14241E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Protein Recharge</span></div>
+<div id="end-v" class="clip" data-start="0" data-duration="7"><div id="end-card">
+  <div class="ec-cap">Try it free, on your phone</div>
+  <div class="ec-url" id="end-url"><span class="ch">p</span><span class="ch">r</span><span class="ch">o</span><span class="ch">t</span><span class="ch">e</span><span class="ch">i</span><span class="ch">n</span><span class="ch">-</span><span class="ch">r</span><span class="ch">e</span><span class="ch">c</span><span class="ch">h</span><span class="ch">a</span><span class="ch">r</span><span class="ch">g</span><span class="ch">e</span><br><span class="ch">.</span><span class="ch">e</span><span class="ch">m</span><span class="ch">b</span><span class="ch">a</span><span class="ch">r</span><span class="ch">k</span><span class="ch">o</span><span class="ch">.</span><span class="ch">a</span><span class="ch">p</span><span class="ch">p</span></div>
+  <div class="ec-note">No sign-up. Your plan stays on your device.</div>
+  <div class="ec-perf"></div>
+  <div class="ec-band"><span class="in" id="end-tag">#DeployWithEmbarko</span></div>
+</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#end-card",{clipPath:"inset(0 100% 0 0 round 44px)"},{clipPath:"inset(0 0% 0 0 round 44px)",duration:0.5,ease:"power3.out"},0.1);
+tl.fromTo("#end-url .ch",{opacity:0},{opacity:1,duration:0.01,stagger:0.045},0.55);
+tl.fromTo("#end-tag",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.45,ease:"power3.out"},2.0);
+    window.__timelines["endcard"] = tl;
+  </script>
+</template>

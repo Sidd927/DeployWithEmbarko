@@ -1,0 +1,34 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:var(--g,#E6EAEA);color:#14241E;font-family:'Figtree',sans-serif}
+.t{position:absolute;left:104px;right:128px;top:312px;margin:0;font-family:'Bricolage',sans-serif;font-weight:800;
+   font-size:80px;line-height:1.0;letter-spacing:-0.03em;font-variation-settings:'opsz' 96}
+.t .in{display:block;clip-path:inset(0 100% 0 0)}
+.s{position:absolute;left:106px;right:128px;top:508px;margin:0;font-weight:600;font-size:38px;line-height:1.25;color:#4D5D57}
+.s .in{display:block;clip-path:inset(0 100% 0 0)}
+.win{position:absolute;left:60px;top:636px;width:960px;height:1124px;border:4px solid #14241E;border-radius:44px;
+     overflow:hidden;background:#fff}
+.pan{position:absolute;left:0;top:0;width:952px}
+.pan video{display:block;width:952px;height:auto}
+</style>
+  <div id="root" data-composition-id="prompt" data-width="1080" data-height="1920" style="">
+    <h1 id="prompt-t0" class="t clip" data-start="0" data-duration="2.3"><span class="in">How it went live</span></h1>
+<h1 id="prompt-t1" class="t clip" data-start="2.3" data-duration="3.4"><span class="in">One Embarko prompt</span></h1>
+<p id="prompt-s0" class="s clip" data-start="0.3" data-duration="5.4"><span class="in">embarko.ai, Copy deployment prompt, paste into Claude Code.</span></p>
+<div class="win" id="prompt-win"><div class="pan" id="prompt-pan" data-layout-allow-overflow><video id="prompt-v" class="clip" src="assets/footage/embarko.mp4" data-start="0" data-duration="5.7" data-media-start="0" data-playback-rate="1" data-track-index="2" muted playsinline></video></div></div>
+
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#prompt-t0 .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.34,ease:"power3.out"},0);
+tl.fromTo("#prompt-t1 .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.34,ease:"power3.out"},2.3);
+tl.fromTo("#prompt-s0 .in",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.4,ease:"power3.out"},0.42);
+tl.set("#prompt-pan",{y:0},0);
+tl.to("#prompt-pan",{y:-330,duration:0.8,ease:"power2.inOut"},1.6);
+
+    window.__timelines["prompt"] = tl;
+  </script>
+</template>

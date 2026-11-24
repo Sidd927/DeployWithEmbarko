@@ -1,0 +1,79 @@
+1
+00:00:00,000 --> 00:00:02,600
+₹50 a day. Mess food.
+A hostel student needs 109 g of protein a day.
+
+2
+00:00:02,600 --> 00:00:05,000
+Enough protein?
+
+3
+00:00:05,000 --> 00:00:07,700
+Mess meals give about 30 g.
+
+4
+00:00:07,700 --> 00:00:10,500
+The gap is 79 g.
+(Real numbers from the app's sample profile.)
+
+5
+00:00:10,500 --> 00:00:14,000
+Protein Recharge
+Daily protein packs, priced like a phone recharge.
+
+6
+00:00:14,000 --> 00:00:23,800
+Five quick questions:
+weight, goal, diet, kettle, mess meals.
+
+7
+00:00:23,800 --> 00:00:31,100
+Pick a daily pack.
+Each one is the exact cheapest mix for that price.
+
+8
+00:00:31,100 --> 00:00:36,300
+Drag the budget.
+The plate re-optimises as you drag.
+
+9
+00:00:36,300 --> 00:00:41,900
+Goal hit at ₹53 a day.
+79 g top-up: soya, sattu, eggs, peanuts, chana.
+
+10
+00:00:41,900 --> 00:00:45,300
+Hate soya chunks?
+
+11
+00:00:45,300 --> 00:00:50,700
+It re-plans without it.
+Tap any food to skip it, pin it or set your price.
+
+12
+00:00:50,700 --> 00:00:56,200
+Then it writes your list,
+in real pack sizes.
+
+13
+00:00:56,200 --> 00:00:58,500
+How it went live:
+
+14
+00:00:58,500 --> 00:01:01,900
+one Embarko prompt.
+embarko.ai, Copy deployment prompt, paste into Claude Code.
+
+15
+00:01:01,900 --> 00:01:11,500
+Claude Code deployed it.
+(Real deploy to Embarko, sped up 3×.)
+
+16
+00:01:11,500 --> 00:01:16,000
+Live in under a minute.
+
+17
+00:01:16,000 --> 00:01:23,000
+Try it free: protein-recharge.embarko.app
+#DeployWithEmbarko
