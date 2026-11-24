@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "status": "building",
+  "app": {
+    "name": "protein-recharge",
+    "kind": "service",
+    "claimed": false,
+    "id": "cmwu6jjed0h4ingfffkiaktph",
+    "expiresAt": "2026-11-25T04:13:39.444Z",
+    "deploymentId": "cmwu6jjr40h4jngffxzcq9x35"
+  },
+  "action": "created",
+  "next": "New app: save app.id as \"appId\" in embarko.json, so later deploys reach this app even if it is renamed. Building: poll links.status every 10 seconds until it says \"live\", \"failed\" or \"crashed\". Temporary app: once it is live, give the user links.claim to open and sign in, which keeps it with no redeploy; otherwise it is deleted at 2026-11-25T04:13:39.444Z.",
+  "links": {
+    "status": "https://ship.embarko.ai/apps/protein-recharge/status",
+    "claim": "https://embarko.ai/claim?app=protein-recharge&code=<REDACTED>",
+    "feedback": "https://ship.embarko.ai/apps/protein-recharge/customer-query"
+  }
+}
