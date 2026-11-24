@@ -16,7 +16,7 @@ Mess food is cereal-heavy. When I estimated my own day (two mess meals of dal, r
 
 **Plans as recharge packs.** Every Indian knows the ₹199 / ₹299 / ₹399 recharge format. Showing protein plans the same way (₹29 / ₹49 / ₹53 a day) made the trade-off obvious without a chart.
 
-**Deploying with Embarko.** I built it with Claude Code. To put it online I copied the deployment prompt from embarko.ai, which tells the agent to read Embarko's quickstart, deploy anonymously, give the live link, and only then ask for an email to keep it. Claude Code packed the project (no node_modules, no .env), POSTed it to `ship.embarko.ai/apps`, and polled the status: building, building, live. About 40 seconds. Embarko detected Vite and built it itself. I didn't add a Dockerfile, choose a port or create a GitHub repo.
+**Deploying with Embarko.** I built it with Claude Code, and Claude Code also deployed it, following the official deployment prompt from embarko.ai. That prompt tells the agent to read Embarko's quickstart, deploy anonymously, give the live link, and only then ask for an email to keep it. Claude Code packed the project (no node_modules, no .env), POSTed it to `ship.embarko.ai/apps`, and polled the status: building, building, live. About 40 seconds. Embarko detected Vite and built it itself. I didn't add a Dockerfile, choose a port or create a GitHub repo.
 
 **What testing on the live URL caught.** I ran my Playwright suite against the live link, not just localhost. Embarko adds a small badge at the bottom left of the page, and on phones it covered the first tab of my bottom navigation, so one test failed. The fix was a single CSS rule that gives the badge its own slot in the tab bar. Lesson: test on the real host, on a real phone width.
 
@@ -48,8 +48,8 @@ Try it on your phone: https://protein-recharge.embarko.app
 ## 3. X (+5), a separate post from the video post
 
 Deployed my first app with @embarko from Claude Code:
-1. copy Embarko's deploy prompt
-2. paste it into Claude Code
+1. Claude Code read Embarko's deployment prompt
+2. it packed and uploaded the app itself
 3. live link in ~40 s, no Dockerfile, no repo
 
 Protein Recharge → protein-recharge.embarko.app
@@ -71,7 +71,7 @@ Mess food gives ~30 g protein/day. I wanted the cheapest way to close the gap un
 
 It's a bounded knapsack solved with DP in the browser (at most 5 foods, ~3 ms). One table answers both "cheapest plan for 79 g" and "most protein for ₹49", so the budget slider re-plans live.
 
-Deploy: I pasted Embarko's deployment prompt into Claude Code, which packed the Vite project and POSTed it to their API. It was live in about 40 s. One gotcha: their badge overlapped my mobile tab bar, and my Playwright tests on the live URL caught it.
+Deploy: Claude Code followed Embarko's official deployment prompt, packed the Vite project and POSTed it to their API. It was live in about 40 s. One gotcha: their badge overlapped my mobile tab bar, and my Playwright tests on the live URL caught it.
 
 Link: https://protein-recharge.embarko.app. I'd love feedback on the prices (they're editable estimates) and the foods I'm missing.
 

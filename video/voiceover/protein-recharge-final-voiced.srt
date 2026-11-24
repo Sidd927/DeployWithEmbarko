@@ -1,0 +1,171 @@
+1
+00:00:00,450 --> 00:00:01,430
+Hi, I'm Siddhant.
+
+2
+00:00:01,890 --> 00:00:03,130
+Quick question for everyone living on
+
+3
+00:00:03,130 --> 00:00:03,530
+mess food.
+
+4
+00:00:05,450 --> 00:00:06,930
+Dal, rice and roti only cover
+
+5
+00:00:06,930 --> 00:00:07,450
+part of it.
+
+6
+00:00:07,880 --> 00:00:08,480
+The rest is a gap.
+
+7
+00:00:11,000 --> 00:00:12,420
+So I built Protein Recharge.
+
+8
+00:00:14,450 --> 00:00:15,670
+You answer five quick questions,
+
+9
+00:00:15,670 --> 00:00:17,470
+including the ones other apps skip:
+
+10
+00:00:17,950 --> 00:00:18,630
+do you have a kettle,
+
+11
+00:00:18,630 --> 00:00:19,910
+and how many mess meals do
+
+12
+00:00:19,910 --> 00:00:20,170
+you eat?
+
+13
+00:00:24,250 --> 00:00:25,050
+Then pick a daily pack,
+
+14
+00:00:25,050 --> 00:00:25,990
+like a mobile recharge.
+
+15
+00:00:26,590 --> 00:00:28,150
+Each one is mathematically the cheapest
+
+16
+00:00:28,150 --> 00:00:28,390
+mix.
+
+17
+00:00:31,550 --> 00:00:32,450
+Now drag the budget,
+
+18
+00:00:32,450 --> 00:00:34,190
+and watch the whole plate rebuild
+
+19
+00:00:34,190 --> 00:00:34,670
+as you go.
+
+20
+00:00:37,750 --> 00:00:39,070
+That's the lowest price that actually
+
+21
+00:00:39,070 --> 00:00:39,610
+hits the target.
+
+22
+00:00:42,350 --> 00:00:43,110
+Don't like something?
+
+23
+00:00:45,350 --> 00:00:47,810
+Skip it, and it re-plans instantly.
+
+24
+00:00:48,180 --> 00:00:49,080
+You can even type in what
+
+25
+00:00:49,080 --> 00:00:49,940
+your local shop charges.
+
+26
+00:00:51,150 --> 00:00:52,430
+And it turns the plan into
+
+27
+00:00:52,430 --> 00:00:53,470
+a shopping list for the week.
+
+28
+00:00:57,000 --> 00:00:57,580
+To put it online,
+
+29
+00:00:57,700 --> 00:00:58,940
+my coding agent followed one prompt
+
+30
+00:00:58,940 --> 00:00:59,820
+from the Embarko website.
+
+31
+00:01:02,350 --> 00:01:03,043
+It packaged the app,
+
+32
+00:01:03,043 --> 00:01:04,290
+uploaded it, and kept checking the
+
+33
+00:01:04,290 --> 00:01:04,510
+status.
+
+34
+00:01:05,060 --> 00:01:05,880
+This is the real deploy,
+
+35
+00:01:06,160 --> 00:01:06,520
+sped up.
+
+36
+00:01:12,850 --> 00:01:13,550
+Live in under a minute.
+
+37
+00:01:16,450 --> 00:01:17,130
+No server setup.
+
+38
+00:01:17,710 --> 00:01:18,310
+No repo.
+
+39
+00:01:18,860 --> 00:01:20,460
+One sign-in, and it's mine to
+
+40
+00:01:20,460 --> 00:01:20,600
+keep.
+
+41
+00:01:22,950 --> 00:01:24,050
+You can try it free at
+
+42
+00:01:24,050 --> 00:01:25,790
+protein recharge dot embarko dot app.
+
+43
+00:01:26,240 --> 00:01:27,800
+Hashtag, Deploy With Embarko.

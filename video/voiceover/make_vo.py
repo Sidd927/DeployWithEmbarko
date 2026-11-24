@@ -37,6 +37,65 @@ def cues_from_words(words: list[dict]) -> list[dict]:
     return cues
 
 
+def caption_words(words: list[dict], say: str, text: str) -> list[dict]:
+    """Words come from what the voice said; show the real spelling in captions when only spelling differs."""
+    sw, tw = say.split(), text.split()
+    if say == text or len(sw) != len(tw) or len(words) != len(tw):
+        return words
+    return [{**w, "text": t} for w, t in zip(words, tw)]
+
+
+def trim_tail(wav_path: Path, words: list[dict], pad: float = 0.3) -> float:
+    """Cut anything more than `pad` s after the last aligned word (Chatterbox sometimes adds a breath or
+    mumble), with a 40 ms fade. Returns the new duration."""
+    import numpy as np
+    import soundfile as sf
+
+    x, sr = sf.read(wav_path, dtype="float32")
+    if not words:
+        return len(x) / sr
+    end = min(len(x), int((words[-1]["end"] + pad) * sr))
+    y = x[:end].copy()
+    fade = min(len(y), int(0.04 * sr))
+    y[-fade:] *= np.linspace(1.0, 0.0, fade, dtype="float32")[:, None] if y.ndim == 2 else np.linspace(1.0, 0.0, fade, dtype="float32")
+    sf.write(wav_path, y, sr, subtype="PCM_24")
+    return len(y) / sr
+
+
+_ASR = None
+
+
+def asr_errors(wav_path: Path, text: str) -> tuple[int, str]:
+    """Words the local Whisper transcript disagrees with (lower is better), plus what it heard."""
+    import difflib
+    import re
+    import subprocess
+
+    import numpy as np
+    from faster_whisper import WhisperModel
+
+    global _ASR
+    if _ASR is None:
+        _ASR = WhisperModel("small.en", device="cpu", compute_type="int8")
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(wav_path), "-ac", "1", "-ar", "16000", "-f", "f32le",
+                          "pipe:1"], capture_output=True, check=True).stdout
+    audio = np.frombuffer(raw, "<f4").copy()  # arrays, not paths: faster-whisper 1.2.1 + PyAV 19 breaks on paths
+    segs, _ = _ASR.transcribe(audio, language="en")
+    heard = " ".join(s.text.strip() for s in segs)
+
+    def norm(t: str) -> list[str]:
+        t = t.lower().replace("-", " ")
+        t = re.sub(r"(?<=[a-z])\.(?=[a-z])", " dot ", t)          # proteinrecharge.embarko.app -> ... dot ...
+        t = t.replace("proteinrecharge", "protein recharge").replace("deploywithembarko", "deploy with embarko")
+        t = re.sub(r"\b5\b", "five", t)
+        return re.sub(r"[^a-z ]", "", t).split()
+
+    ref, hyp = norm(text), norm(heard)
+    sm = difflib.SequenceMatcher(None, ref, hyp)
+    errs = sum(max(i2 - i1, j2 - j1) for tag, i1, i2, j1, j2 in sm.get_opcodes() if tag != "equal")
+    return errs, heard
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--voice", required=True, help="NarraReel voice id (see `narrareel voices`)")
@@ -44,6 +103,7 @@ def main() -> None:
     ap.add_argument("--only", default="", help="comma-separated segment ids to (re)generate")
     ap.add_argument("--sample", action="store_true", help="generate one evaluation line only")
     ap.add_argument("--timing", default="aligned", choices=["aligned", "estimated", "auto"])
+    ap.add_argument("--takes", default="", help="comma-separated energies to try per segment; keeps the best take")
     args = ap.parse_args()
 
     from narrareel.jobs.workspace import Workspace
@@ -71,25 +131,60 @@ def main() -> None:
         if only and seg["id"] not in only:
             continue
         window = round(seg["end"] - seg["start"], 2)
-        out = PRIVATE / "segments" / seg["id"]
-        if out.exists():
-            shutil.rmtree(out)
-        r = speak(seg["text"], selection, Workspace(out), timing=args.timing, loudness=LUFS)
-        fitted = False
-        if r.duration > window:  # natural delivery too long: let NarraReel fit it (pauses first, then speed)
-            shutil.rmtree(out)
-            r = speak(seg["text"], selection, Workspace(out), target_seconds=window,
-                      timing=args.timing, loudness=LUFS)
-            fitted = True
-        words = [w.model_dump() for w in r.words]
+        energies = [float(e) for e in args.takes.split(",") if e.strip()] or [args.energy]
+        best = None
+        for e in energies:
+            sel = VoiceSelection.parse(f"chatterbox:{args.voice}", speed=1.0, energy=e)
+            out = PRIVATE / "segments" / seg["id"] / f"take_e{e:.2f}"
+            if out.exists():
+                shutil.rmtree(out)
+            say = seg.get("say", seg["text"])
+
+            def run(**kw):
+                for attempt in (1, 2):  # ffmpeg occasionally dies with a signal (exit -5); one retry
+                    try:
+                        if out.exists():
+                            shutil.rmtree(out)
+                        return speak(say, sel, Workspace(out), timing=args.timing, loudness=LUFS, **kw)
+                    except Exception as exc:  # noqa: BLE001
+                        print(json.dumps({"id": seg["id"], "energy": e, "retry": attempt, "error": str(exc)[:120]}),
+                              flush=True)
+                        if attempt == 2:
+                            return None
+
+            r = run()
+            if r is None:
+                continue
+            dur = trim_tail(Path(r.audio_wav), [w.model_dump() for w in r.words])
+            fitted = False
+            if dur > window:  # still too long after trimming junk: let NarraReel fit it (pauses first, then speed)
+                r = run(target_seconds=window)
+                if r is None:
+                    continue
+                dur = trim_tail(Path(r.audio_wav), [w.model_dump() for w in r.words])
+                fitted = True
+            errs, heard = asr_errors(Path(r.audio_wav), seg["text"])
+            score = (errs, abs(r.speed - 1.0), abs(e - args.energy))
+            print(json.dumps({"id": seg["id"], "energy": e, "errors": errs, "dur": round(dur, 2), "speed": r.speed,
+                              "heard": heard}), flush=True)
+            if best is None or score < best[0]:
+                best = (score, r, dur, fitted, e, errs, heard)
+        if best is None:
+            print(json.dumps({"id": seg["id"], "failed": "no usable take"}), flush=True)
+            continue
+        _, r, dur, fitted, chosen_e, errs, heard = best
+        words = caption_words([w.model_dump() for w in r.words], seg.get("say", seg["text"]), seg["text"])
         dst = ASSETS_VO / f"seg{seg['id']}.wav"
         shutil.copyfile(r.audio_wav, dst)
         manifest[seg["id"]] = {"id": seg["id"], "file": f"vo/seg{seg['id']}.wav", "start": seg["start"],
-                               "duration": round(r.duration, 3), "text": seg["text"],
-                               "cues": cues_from_words(words), "speed": r.speed, "fitted": fitted}
-        report.append({"id": seg["id"], "window": window, "duration": round(r.duration, 2),
-                       "fitted": fitted, "speed": round(r.speed, 3), "note": r.note})
-        print(json.dumps(report[-1]), flush=True)
+                               "duration": round(dur, 3), "text": seg["text"], "energy": chosen_e,
+                               "cues": cues_from_words(words), "speed": r.speed, "fitted": fitted,
+                               "asr_errors": errs, "asr_heard": heard}
+        report.append({"id": seg["id"], "window": window, "duration": round(dur, 2), "energy": chosen_e,
+                       "fitted": fitted, "speed": round(r.speed, 3), "asr_errors": errs, "heard": heard})
+        print("CHOSEN " + json.dumps(report[-1]), flush=True)
+        ordered = [manifest[k] for k in sorted(manifest, key=lambda k: manifest[k]["start"])]
+        manifest_path.write_text(json.dumps(ordered, indent=1))
     ordered = [manifest[k] for k in sorted(manifest, key=lambda k: manifest[k]["start"])]
     manifest_path.write_text(json.dumps(ordered, indent=1))
     (PRIVATE / "generation_report.json").write_text(json.dumps(report, indent=1))

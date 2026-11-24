@@ -170,7 +170,7 @@ shots.append(scene("list", 5.5,
 # 9 Embarko prompt (real embarko.ai).
 shots.append(scene("prompt", 5.7,
     titles=[("How it went live", 0, 2.3), ("One Embarko prompt", 2.3, 5.7)],
-    subs=[("embarko.ai, Copy deployment prompt, paste into Claude Code.", 0.3, 5.7)],
+    subs=[("Claude Code followed Embarko's deployment prompt.", 0.3, 5.7)],
     video=dict(src="embarko.mp4", media_start=0, rate=1, start_y=0, pans=[(1.6, 330, 0.8)])))
 
 # 10 Real deploy at 3x.

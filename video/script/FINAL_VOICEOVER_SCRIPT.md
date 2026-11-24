@@ -20,17 +20,23 @@ Pace target: about 2.6 words a second, with at least 0.2 s of air at each segmen
 | (gap) | 36.7–37.5 s | | **"Goal hit" pop and riser crest. Silence** | | |
 | 6b | 37.50 s | 41.70 s | "Goal hit at ₹53 a day" | That's the lowest price that actually hits the target. | 9 |
 | 7 | 42.10 s | 50.50 s | Exclude soya, re-plan | Don't like something? Skip it, and it re-plans instantly. You can even type in what your local shop charges. | 19 |
-| 8 | 50.90 s | 56.00 s | Weekly shopping list | And it turns the plan into a weekly shopping list. | 10 |
-| 9 | 56.40 s | 61.70 s | embarko.ai, Copy deployment prompt | To put it online, I copied one prompt from Embarko's website. | 11 |
-| 10 | 62.10 s | 71.20 s | Real deploy in the terminal (3×) | Pasted it into Claude Code. It packed the app, uploaded it, and kept checking the status. This is the real deploy, sped up. | 23 |
+| 8 | 50.90 s | 56.00 s | Weekly shopping list | And it turns the plan into a shopping list for the week. | 12 |
+| 9 | 56.75 s | 61.70 s | embarko.ai, Copy deployment prompt | To put it online, my coding agent followed one prompt from the Embarko website. | 13 |
+| 10 | 62.10 s | 71.20 s | Real deploy in the terminal (3×). The title on screen says "Claude Code deployed it" | It packaged the app, uploaded it, and kept checking the status. This is the real deploy, sped up. | 18 |
 | (gap) | 71.2–72.6 s | | **"Live" pop. Silence** | | |
 | 10b | 72.60 s | 75.80 s | "Live in under a minute" | Live in under a minute. | 5 |
-| 11 | 76.20 s | 81.80 s | Claimed live app: "No Dockerfile. No repo." | No Dockerfile. No repo. One sign-in, and it's mine to keep. | 12 |
-| 12 | 82.30 s | 88.80 s | End card URL + #DeployWithEmbarko | Try it free at protein recharge dot embarko dot app. Hashtag Deploy With Embarko. | 13 |
+| 11 | 76.20 s | 81.80 s | Claimed live app: title "No Dockerfile. No repo." | No server setup. No repo. One sign-in, and it's mine to keep. | 12 |
+| 12 | 82.70 s | 88.80 s | End card URL + #DeployWithEmbarko | You can try it free at protein recharge dot embarko dot app. Hashtag, Deploy With Embarko. | 15 |
 
 About 183 words over 89 s, leaving room to breathe.
 
 **Line 10b** repeats its title on purpose. It's the payoff line of the Embarko story, and hearing it confirms what the viewer sees. It is the only title the voice repeats.
+
+## Accuracy correction
+Segments 09 and 10 first said "I copied one prompt… I pasted it into my coding agent". In fact Claude Code fetched Embarko's official prompt from embarko.ai and followed it, and the entrant did not copy or paste it. The lines now say what happened. The prompt-scene subtitle was corrected the same way.
+
+## Changes made after testing the clone
+The first generations showed that Chatterbox reliably mispronounced "Claude" (heard as plot, cloud or blog), "Dockerfile" (docket fight) and "weekly" (Wiki), and dropped the first consonant of a sentence-initial "Try". Segments 08, 10, 11 and 12 were reworded so the voice avoids those words. The titles on screen still show "Claude Code" and "Dockerfile", so no information is lost.
 
 ## Pronunciation notes for the clone
 - Written so the model reads it correctly: "fifty-three rupees" isn't used (the title shows ₹53). "protein recharge dot embarko dot app" is spelled out.

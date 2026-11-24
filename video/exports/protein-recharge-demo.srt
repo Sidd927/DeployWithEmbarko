@@ -62,12 +62,12 @@ Weekly amounts in real pack sizes.
 13
 00:00:56,200 --> 00:00:58,500
 How it went live
-embarko.ai, Copy deployment prompt, paste into Claude Code.
+Claude Code followed Embarko's deployment prompt.
 
 14
 00:00:58,500 --> 00:01:01,900
 One Embarko prompt
-embarko.ai, Copy deployment prompt, paste into Claude Code.
+Claude Code followed Embarko's deployment prompt.
 
 15
 00:01:01,900 --> 00:01:11,500

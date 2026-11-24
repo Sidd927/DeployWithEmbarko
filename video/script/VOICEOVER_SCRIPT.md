@@ -1,4 +1,8 @@
-# Voiceover Script (for you to record in your own voice)
+# Voiceover Script (superseded)
+
+> **Superseded by `FINAL_VOICEOVER_SCRIPT.md`.** The lines below about copying and pasting the prompt were inaccurate: Claude Code fetched and followed Embarko's prompt. Use the final script.
+
+# Original draft
 
 The video works muted, but a real human voice is the biggest improvement left for the **Video** score (storytelling, hook). This script is timed to the final 89 s cut. Read it at a relaxed pace, about 2.5 words a second. Every line fits inside its section.
 

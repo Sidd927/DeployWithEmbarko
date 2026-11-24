@@ -1,5 +1,7 @@
 # Final Video and Quality Report
 
+> **Two versions (24 Nov):** **A**, `protein-recharge-demo-9x16.mp4`, unnarrated, the current official version. **B**, `protein-recharge-final-voiced-9x16.mp4`, narrated in an AI clone of the entrant's voice, local only, **waiting for the entrant's listening approval**. Details: `video/voiceover/VOICEOVER_QUALITY_REPORT.md`. Both use the corrected prompt-scene subtitle "Claude Code followed Embarko's deployment prompt."
+
 | Item | Value |
 |---|---|
 | **Final file** | `video/exports/protein-recharge-demo-9x16.mp4` |
@@ -25,7 +27,7 @@
 |---|---|---|
 | 40 s–3 min | ✅ | 89 s |
 | Shows the actual application | ✅ | 0–56 s and 76–82 s, all captured from the live app |
-| Introduces the entrant and project | ⚠️ Partly | Text credit "Built by Siddhant Patil with Claude Code" at 12–14 s. **A spoken or on-camera intro needs you** (VOICEOVER_SCRIPT.md line 1) |
+| Introduces the entrant and project | A: text credit at 12–14 s · **B: spoken "Hi, I'm Siddhant" in your cloned voice at 0.2 s** | |
 | Important functionality | ✅ | Setup, packs, live slider, exclude/re-plan, shopping list |
 | Experience of using Embarko | ✅ | 76–82 s: "No Dockerfile. No repo." "The first deploy needed no account." "Claimed it. It stays live." |
 | How the deployment prompt was obtained | ✅ | 56–62 s: the real embarko.ai page, tapping "Copy deployment prompt" |

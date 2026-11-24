@@ -1,6 +1,6 @@
 # X (Twitter)
 
-**Attach:** `video/exports/protein-recharge-demo-9x16.mp4` (X accepts up to 2:20 on free accounts, and this is 89 s).
+**Attach:** `video/exports/protein-recharge-final-voiced-9x16.mp4` (narrated; fallback `protein-recharge-demo-9x16.mp4`) (X accepts up to 2:20 on free accounts, and this is 89 s).
 
 ## Main post (≤ 280 chars)
 > Personal line ("I need ~110 g"): keep it only if it's true. Neutral version: "Hostel mess food gives ~30 g protein a day. A 68 kg gym-goer needs ~110 g."
@@ -18,8 +18,8 @@ Try yours 👉 protein-recharge.embarko.app
 ## Reply thread (optional, raises engagement)
 1/ It's not an AI wrapper. A small optimiser (bounded knapsack with dynamic programming) runs in your browser and finds the true minimum-cost mix under caps like "max 50 g soya a day" and "no stove".
 2/ Plans show up as daily packs, like a phone recharge: ₹29, ₹49, ₹53… Drag the budget and the plate rebuilds live.
-3/ Built with Claude Code, shipped by pasting Embarko's deployment prompt. The deploy in the video is real, live in under a minute.
-4/ Free, no sign-up, your data stays on your phone. Tell me what your mess serves and I'll add it.
+3/ Built with Claude Code, then shipped by Claude Code following Embarko's deployment prompt. The deploy in the video is real, live in under a minute.
+4/ The narration is an AI clone of my own voice (NarraReel + Chatterbox, run locally). Free, no sign-up, your data stays on your phone. Tell me what your mess serves and I'll add it.
 
 ## Writing-bonus X post (separate post, needs BOTH hashtags, worth +5)
 See BONUS_CONTENT.md. Use a separate post so the main video post's engagement isn't split.

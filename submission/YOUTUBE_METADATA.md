@@ -1,8 +1,8 @@
 # YouTube (Shorts)
 
-**Video:** `video/exports/protein-recharge-demo-9x16.mp4`. A Short must be vertical and under 3 minutes, which this is.
+**Video:** `video/exports/protein-recharge-final-voiced-9x16.mp4` (narrated). Fallback: `protein-recharge-demo-9x16.mp4`. A Short must be vertical and under 3 minutes, which this is.
 **Thumbnail:** `video/exports/thumbnail-youtube-1280x720.png` (for the long-form view or channel page. Shorts uses a frame you pick.)
-**Subtitles:** upload `video/exports/protein-recharge-demo.srt` (English).
+**Subtitles:** upload `video/voiceover/protein-recharge-final-voiced.srt` (word-timed to the narration). For the unnarrated fallback, use `video/exports/protein-recharge-demo.srt`.
 
 ## Title (≤ 100 chars)
 Hostel mess food. Enough protein? I built the cheapest fix #DeployWithEmbarko
@@ -19,8 +19,10 @@ What it does
 • Skip or pin any food, set your own shop's prices
 • Weekly shopping list in real pack sizes
 
+Narration: an AI clone of my own voice, made locally with NarraReel and Chatterbox from my recording.
+
 How I built and shipped it
-Built with Claude Code (React + TypeScript). Deployed to Embarko by pasting Embarko's deployment prompt into Claude Code. The deploy in the video is a real one, sped up 3×.
+Built with Claude Code (React + TypeScript). Deployed to Embarko by Claude Code, following Embarko's official deployment prompt. The deploy in the video is a real one, sped up 3×.
 
 Targets follow ICMR-NIN Dietary Guidelines for Indians (2024). Prices are typical estimates you can edit. This is general information, not medical advice.
 
@@ -30,4 +32,4 @@ Targets follow ICMR-NIN Dietary Guidelines for Indians (2024). Prices are typica
 protein on a budget, hostel diet, high protein vegetarian india, soya chunks protein, student meal plan, mess food protein, Claude Code, Embarko, DeployWithEmbarko
 
 ## Settings
-Audience: not made for kids. Visibility: **Public** (it must stay public until the results are announced). Category: Science & Technology, or Howto & Style.
+**Altered or synthetic content: answer Yes.** The narration is a realistic AI voice clone. Audience: not made for kids. Visibility: **Public** (it must stay public until the results are announced). Category: Science & Technology, or Howto & Style.
