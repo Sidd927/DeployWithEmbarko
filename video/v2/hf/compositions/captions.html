@@ -1,0 +1,75 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0}
+.cap{position:absolute;left:110px;right:130px;top:1040px;display:flex;justify-content:center}
+.cap .in{display:inline-block;max-width:940px;text-align:center;background:#FFFFFF;border:5px solid #14241E;border-radius:22px;
+  padding:14px 26px 18px;font-family:'Bricolage',sans-serif;font-weight:800;font-size:66px;line-height:1.05;letter-spacing:-.02em;color:#14241E;
+  box-shadow:0 8px 0 #14241E}
+.cap .k{background:#FFC21A;border-radius:10px;padding:0 8px;font-weight:800}
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div id="cap1" class="cap clip" data-start="0.5" data-duration="1.79"><span class="in">Per rupee, <b class="k">soya</b> chunks give you</span></div>
+<div id="cap2" class="cap clip" data-start="2.32" data-duration="1.22"><span class="in"><b class="k">nine</b> times the protein of <b class="k">whey.</b></span></div>
+<div id="cap3" class="cap clip" data-start="4.22" data-duration="1.54"><span class="in"><b class="k">Whey</b> is way down the list.</span></div>
+<div id="cap4" class="cap clip" data-start="6.54" data-duration="1.11"><span class="in">But nobody's eating half a kilo</span></div>
+<div id="cap5" class="cap clip" data-start="7.68" data-duration="0.455"><span class="in">of <b class="k">soya</b> every day.</span></div>
+<div id="cap6" class="cap clip" data-start="8.765" data-duration="1.21"><span class="in">Mess food gets you maybe thirty</span></div>
+<div id="cap7" class="cap clip" data-start="10.005" data-duration="0.32"><span class="in">grams.</span></div>
+<div id="cap8" class="cap clip" data-start="10.955" data-duration="0.63"><span class="in">If you work out,</span></div>
+<div id="cap9" class="cap clip" data-start="11.615" data-duration="1.06"><span class="in">you need over a hundred.</span></div>
+<div id="cap10" class="cap clip" data-start="13.555" data-duration="1.07"><span class="in">So I built an app that</span></div>
+<div id="cap11" class="cap clip" data-start="14.655" data-duration="0.82"><span class="in">does the math for you.</span></div>
+<div id="cap12" class="cap clip" data-start="16.055" data-duration="1.42"><span class="in">Your weight, your diet,</span></div>
+<div id="cap13" class="cap clip" data-start="17.775" data-duration="2.04"><span class="in">your kettle, your mess meals.</span></div>
+<div id="cap14" class="cap clip" data-start="20.545" data-duration="1.24"><span class="in">Now drag your <b class="k">budget.</b></span></div>
+<div id="cap15" class="cap clip" data-start="22.365" data-duration="1.25"><span class="in">Watch the plate rebuild as you</span></div>
+<div id="cap16" class="cap clip" data-start="23.645" data-duration="0.3"><span class="in">go,</span></div>
+<div id="cap17" class="cap clip" data-start="24.455" data-duration="1.34"><span class="in">and at <b class="k">fifty-three</b> rupees a day,</span></div>
+<div id="cap18" class="cap clip" data-start="26.115" data-duration="1.16"><span class="in">you actually hit your <b class="k">goal.</b></span></div>
+<div id="cap19" class="cap clip" data-start="28.305" data-duration="0.97"><span class="in">Skip any food you don't like,</span></div>
+<div id="cap20" class="cap clip" data-start="29.305" data-duration="1.49"><span class="in">and it finds a new plan</span></div>
+<div id="cap21" class="cap clip" data-start="30.825" data-duration="0.68"><span class="in">instantly.</span></div>
+<div id="cap22" class="cap clip" data-start="32.235" data-duration="1.18"><span class="in">Then it writes your shopping list.</span></div>
+<div id="cap23" class="cap clip" data-start="34.195" data-duration="1.28"><span class="in">I put it online with <b class="k">Embarko.</b></span></div>
+<div id="cap24" class="cap clip" data-start="36.055" data-duration="1.27"><span class="in">My coding agent followed one prompt,</span></div>
+<div id="cap25" class="cap clip" data-start="37.355" data-duration="1.11"><span class="in">and it was live in under</span></div>
+<div id="cap26" class="cap clip" data-start="38.495" data-duration="0.38"><span class="in">a minute.</span></div>
+<div id="cap27" class="cap clip" data-start="39.755" data-duration="1.68"><span class="in">It's <b class="k">free,</b> with no sign-up.</span></div>
+<div id="cap28" class="cap clip" data-start="42.015" data-duration="1.14"><span class="in">Send this to your gym friend.</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#cap1 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},0.5);
+tl.fromTo("#cap2 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},2.32);
+tl.fromTo("#cap3 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},4.22);
+tl.fromTo("#cap4 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},6.54);
+tl.fromTo("#cap5 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},7.68);
+tl.fromTo("#cap6 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},8.765);
+tl.fromTo("#cap7 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},10.005);
+tl.fromTo("#cap8 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},10.955);
+tl.fromTo("#cap9 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},11.615);
+tl.fromTo("#cap10 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},13.555);
+tl.fromTo("#cap11 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},14.655);
+tl.fromTo("#cap12 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},16.055);
+tl.fromTo("#cap13 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},17.775);
+tl.fromTo("#cap14 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},20.545);
+tl.fromTo("#cap15 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},22.365);
+tl.fromTo("#cap16 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},23.645);
+tl.fromTo("#cap17 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},24.455);
+tl.fromTo("#cap18 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},26.115);
+tl.fromTo("#cap19 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},28.305);
+tl.fromTo("#cap20 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},29.305);
+tl.fromTo("#cap21 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},30.825);
+tl.fromTo("#cap22 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},32.235);
+tl.fromTo("#cap23 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},34.195);
+tl.fromTo("#cap24 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},36.055);
+tl.fromTo("#cap25 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},37.355);
+tl.fromTo("#cap26 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},38.495);
+tl.fromTo("#cap27 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},39.755);
+tl.fromTo("#cap28 .in",{scale:0.9,opacity:0.4},{scale:1,opacity:1,duration:0.12,ease:"back.out(2)"},42.015);
+    window.__timelines["captions"] = tl;
+  </script>
+</template>

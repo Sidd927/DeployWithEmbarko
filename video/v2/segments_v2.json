@@ -1,0 +1,107 @@
+[
+ {
+  "id": "h1",
+  "start": 0,
+  "end": 30,
+  "scene": "rank-top",
+  "text": "Per rupee, soya chunks give you nine times the protein of whey."
+ },
+ {
+  "id": "h2",
+  "start": 0,
+  "end": 30,
+  "scene": "rank-scroll",
+  "text": "Whey is way down the list."
+ },
+ {
+  "id": "p1",
+  "start": 0,
+  "end": 30,
+  "scene": "cut",
+  "text": "But nobody's eating half a kilo of soya every day."
+ },
+ {
+  "id": "p2",
+  "start": 0,
+  "end": 30,
+  "scene": "equation",
+  "text": "Mess food gets you maybe thirty grams. If you work out, you need over a hundred."
+ },
+ {
+  "id": "s1",
+  "start": 0,
+  "end": 30,
+  "scene": "reveal",
+  "text": "So I built an app that does the math for you."
+ },
+ {
+  "id": "s2",
+  "start": 0,
+  "end": 30,
+  "scene": "setup",
+  "text": "Your weight, your diet, your kettle, your mess meals."
+ },
+ {
+  "id": "w1",
+  "start": 0,
+  "end": 30,
+  "scene": "slider",
+  "text": "Now drag your budget."
+ },
+ {
+  "id": "w2",
+  "start": 0,
+  "end": 30,
+  "scene": "slider",
+  "text": "Watch the plate rebuild as you go,"
+ },
+ {
+  "id": "w3",
+  "start": 0,
+  "end": 30,
+  "scene": "goal",
+  "text": "and at fifty-three rupees a day, you actually hit your goal."
+ },
+ {
+  "id": "x1",
+  "start": 0,
+  "end": 30,
+  "scene": "exclude",
+  "text": "Skip any food you don't like, and it finds a new plan instantly."
+ },
+ {
+  "id": "l1",
+  "start": 0,
+  "end": 30,
+  "scene": "list",
+  "text": "Then it writes your shopping list."
+ },
+ {
+  "id": "e1",
+  "start": 0,
+  "end": 30,
+  "scene": "embarko",
+  "text": "I put it online with Embarko."
+ },
+ {
+  "id": "e2",
+  "start": 0,
+  "end": 30,
+  "scene": "deploy",
+  "text": "My coding agent followed one prompt, and it was live in under a minute."
+ },
+ {
+  "id": "c1",
+  "start": 0,
+  "end": 30,
+  "scene": "end",
+  "text": "It's free, with no sign-up."
+ },
+ {
+  "id": "c2",
+  "start": 0,
+  "end": 30,
+  "scene": "end",
+  "text": "Send this to your gym friend."
+ }
+]

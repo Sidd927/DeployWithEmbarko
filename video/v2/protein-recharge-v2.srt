@@ -1,0 +1,111 @@
+1
+00:00:00,500 --> 00:00:02,290
+Per rupee, soya chunks give you
+
+2
+00:00:02,320 --> 00:00:03,540
+nine times the protein of whey.
+
+3
+00:00:04,220 --> 00:00:05,760
+Whey is way down the list.
+
+4
+00:00:06,540 --> 00:00:07,650
+But nobody's eating half a kilo
+
+5
+00:00:07,680 --> 00:00:08,135
+of soya every day.
+
+6
+00:00:08,765 --> 00:00:09,975
+Mess food gets you maybe thirty
+
+7
+00:00:10,005 --> 00:00:10,325
+grams.
+
+8
+00:00:10,955 --> 00:00:11,585
+If you work out,
+
+9
+00:00:11,615 --> 00:00:12,675
+you need over a hundred.
+
+10
+00:00:13,555 --> 00:00:14,625
+So I built an app that
+
+11
+00:00:14,655 --> 00:00:15,475
+does the math for you.
+
+12
+00:00:16,055 --> 00:00:17,475
+Your weight, your diet,
+
+13
+00:00:17,775 --> 00:00:19,815
+your kettle, your mess meals.
+
+14
+00:00:20,545 --> 00:00:21,785
+Now drag your budget.
+
+15
+00:00:22,365 --> 00:00:23,615
+Watch the plate rebuild as you
+
+16
+00:00:23,645 --> 00:00:23,925
+go,
+
+17
+00:00:24,455 --> 00:00:25,795
+and at fifty-three rupees a day,
+
+18
+00:00:26,115 --> 00:00:27,275
+you actually hit your goal.
+
+19
+00:00:28,305 --> 00:00:29,275
+Skip any food you don't like,
+
+20
+00:00:29,305 --> 00:00:30,795
+and it finds a new plan
+
+21
+00:00:30,825 --> 00:00:31,505
+instantly.
+
+22
+00:00:32,235 --> 00:00:33,415
+Then it writes your shopping list.
+
+23
+00:00:34,195 --> 00:00:35,475
+I put it online with Embarko.
+
+24
+00:00:36,055 --> 00:00:37,325
+My coding agent followed one prompt,
+
+25
+00:00:37,355 --> 00:00:38,465
+and it was live in under
+
+26
+00:00:38,495 --> 00:00:38,875
+a minute.
+
+27
+00:00:39,755 --> 00:00:41,435
+It's free, with no sign-up.
+
+28
+00:00:42,015 --> 00:00:43,155
+Send this to your gym friend.

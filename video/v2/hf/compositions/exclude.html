@@ -1,0 +1,23 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:#E6EAEA;color:#14241E;font-family:'Figtree',sans-serif}
+.cam{position:absolute;left:0;top:0;width:1080px;transform-origin:0 0}
+.cam video{display:block;width:1080px;height:auto}
+.ring{position:absolute;border:6px solid #FFC21A;border-radius:22px;box-shadow:0 0 0 4px #14241E}
+.chip{position:absolute;background:#14241E;color:#FFC21A;font-family:'Bricolage',sans-serif;font-weight:800;
+      font-size:48px;letter-spacing:-.02em;padding:10px 22px;border-radius:16px;white-space:nowrap}
+</style>
+  <div id="root" data-composition-id="exclude" data-width="1080" data-height="1920">
+    <div class="cam" id="exclude-cam"><video id="exclude-v" class="clip" src="assets/footage/exclude.mp4" data-start="0" data-duration="3.98" data-media-start="0.7" data-playback-rate="1.25" data-track-index="2" muted playsinline></video></div>
+
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#exclude-cam",{x:-21.6,y:-144.0,scale:1.04},0);
+
+    window.__timelines["exclude"] = tl;
+  </script>
+</template>

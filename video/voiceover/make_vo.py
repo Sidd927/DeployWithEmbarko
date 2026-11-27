@@ -87,6 +87,9 @@ def asr_errors(wav_path: Path, text: str) -> tuple[int, str]:
         t = t.lower().replace("-", " ")
         t = re.sub(r"(?<=[a-z])\.(?=[a-z])", " dot ", t)          # proteinrecharge.embarko.app -> ... dot ...
         t = t.replace("proteinrecharge", "protein recharge").replace("deploywithembarko", "deploy with embarko")
+        nums = {"9": "nine", "30": "thirty", "53": "fifty three", "100": "one hundred", "5": "five"}
+        t = re.sub(r"\b(\d+)\b", lambda m: nums.get(m.group(1), m.group(1)), t)
+        t = t.replace("fifty-three", "fifty three").replace("half a kilo", "half a kilo")
         t = re.sub(r"\b5\b", "five", t)
         return re.sub(r"[^a-z ]", "", t).split()
 
@@ -104,6 +107,9 @@ def main() -> None:
     ap.add_argument("--sample", action="store_true", help="generate one evaluation line only")
     ap.add_argument("--timing", default="aligned", choices=["aligned", "estimated", "auto"])
     ap.add_argument("--takes", default="", help="comma-separated energies to try per segment; keeps the best take")
+    ap.add_argument("--segments", default=str(HERE / "segments.json"), help="segment spec (default: v1 segments.json)")
+    ap.add_argument("--assets", default=str(ASSETS_VO), help="where seg*.wav + manifest.json go")
+    ap.add_argument("--private", default=str(PRIVATE / "segments"), help="private working folder for takes")
     args = ap.parse_args()
 
     from narrareel.jobs.workspace import Workspace
@@ -121,10 +127,12 @@ def main() -> None:
         print(json.dumps({"sample": str(r.audio_wav), "duration": round(r.duration, 2)}))
         return
 
-    segs = json.loads((HERE / "segments.json").read_text())
+    segs = json.loads(Path(args.segments).read_text())
+    assets_vo = Path(args.assets)
+    seg_dir = Path(args.private)
     only = {s.strip() for s in args.only.split(",") if s.strip()}
-    ASSETS_VO.mkdir(parents=True, exist_ok=True)
-    manifest_path = ASSETS_VO / "manifest.json"
+    assets_vo.mkdir(parents=True, exist_ok=True)
+    manifest_path = assets_vo / "manifest.json"
     manifest = {m["id"]: m for m in json.loads(manifest_path.read_text())} if manifest_path.exists() else {}
     report = []
     for seg in segs:
@@ -135,7 +143,7 @@ def main() -> None:
         best = None
         for e in energies:
             sel = VoiceSelection.parse(f"chatterbox:{args.voice}", speed=1.0, energy=e)
-            out = PRIVATE / "segments" / seg["id"] / f"take_e{e:.2f}"
+            out = seg_dir / seg["id"] / f"take_e{e:.2f}"
             if out.exists():
                 shutil.rmtree(out)
             say = seg.get("say", seg["text"])
@@ -174,7 +182,7 @@ def main() -> None:
             continue
         _, r, dur, fitted, chosen_e, errs, heard = best
         words = caption_words([w.model_dump() for w in r.words], seg.get("say", seg["text"]), seg["text"])
-        dst = ASSETS_VO / f"seg{seg['id']}.wav"
+        dst = assets_vo / f"seg{seg['id']}.wav"
         shutil.copyfile(r.audio_wav, dst)
         manifest[seg["id"]] = {"id": seg["id"], "file": f"vo/seg{seg['id']}.wav", "start": seg["start"],
                                "duration": round(dur, 3), "text": seg["text"], "energy": chosen_e,
@@ -187,7 +195,7 @@ def main() -> None:
         manifest_path.write_text(json.dumps(ordered, indent=1))
     ordered = [manifest[k] for k in sorted(manifest, key=lambda k: manifest[k]["start"])]
     manifest_path.write_text(json.dumps(ordered, indent=1))
-    (PRIVATE / "generation_report.json").write_text(json.dumps(report, indent=1))
+    (seg_dir.parent / f"generation_report_{Path(args.segments).stem}.json").write_text(json.dumps(report, indent=1))
 
 
 if __name__ == "__main__":

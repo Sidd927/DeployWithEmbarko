@@ -1,0 +1,36 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:#E6EAEA;color:#14241E;font-family:'Figtree',sans-serif}
+.cam{position:absolute;left:0;top:0;width:1080px;transform-origin:0 0}
+.cam video{display:block;width:1080px;height:auto}
+.ring{position:absolute;border:6px solid #FFC21A;border-radius:22px;box-shadow:0 0 0 4px #14241E}
+.chip{position:absolute;background:#14241E;color:#FFC21A;font-family:'Bricolage',sans-serif;font-weight:800;
+      font-size:48px;letter-spacing:-.02em;padding:10px 22px;border-radius:16px;white-space:nowrap}
+#end-card{position:absolute;left:100px;right:120px;top:300px;height:640px;background:#FFC21A;border:6px solid #14241E;border-radius:44px;overflow:hidden}
+.ec-cap{position:absolute;left:52px;top:50px;font-weight:800;font-size:42px}
+.ec-url{position:absolute;left:48px;right:30px;top:118px;font-family:'Bricolage',sans-serif;font-weight:800;font-size:84px;line-height:1.02;letter-spacing:-.04em;white-space:nowrap}
+.ec-url span{opacity:0}
+.ec-perf{position:absolute;left:52px;right:52px;top:372px;border-top:5px dashed rgba(20,36,30,.55)}
+.ec-band{position:absolute;left:0;right:0;bottom:0;height:240px;background:#14241E;color:#FFC21A;display:flex;align-items:center;padding:0 52px;
+  font-family:'Bricolage',sans-serif;font-weight:800;font-size:66px;letter-spacing:-.03em}
+#end-tag{clip-path:inset(0 100% 0 0)}
+#end-credit{position:absolute;left:130px;right:150px;top:960px;font-weight:600;font-size:30px;line-height:1.4;color:#4D5D57;text-align:center}</style>
+  <div id="root" data-composition-id="end" data-width="1080" data-height="1920" style="background:#E6EAEA">
+    <div id="end-card"><div class="ec-cap">Try it free, on your phone</div>
+<div class="ec-url" id="end-url"><span class="ch">p</span><span class="ch">r</span><span class="ch">o</span><span class="ch">t</span><span class="ch">e</span><span class="ch">i</span><span class="ch">n</span><span class="ch">-</span><span class="ch">r</span><span class="ch">e</span><span class="ch">c</span><span class="ch">h</span><span class="ch">a</span><span class="ch">r</span><span class="ch">g</span><span class="ch">e</span><br><span class="ch">.</span><span class="ch">e</span><span class="ch">m</span><span class="ch">b</span><span class="ch">a</span><span class="ch">r</span><span class="ch">k</span><span class="ch">o</span><span class="ch">.</span><span class="ch">a</span><span class="ch">p</span><span class="ch">p</span></div><div class="ec-perf"></div>
+<div class="ec-band"><span id="end-tag">#DeployWithEmbarko</span></div></div>
+<div id="end-credit">Built by Siddhant Patil with Claude Code · live on Embarko<br>Narration: AI clone of my own voice</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+tl.fromTo("#end-card",{clipPath:"inset(0 100% 0 0 round 44px)"},{clipPath:"inset(0 0% 0 0 round 44px)",duration:0.4,ease:"power3.out"},0);
+tl.fromTo("#end-url .ch",{opacity:0},{opacity:1,duration:0.01,stagger:0.035},0.35);
+tl.fromTo("#end-tag",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.4,ease:"power3.out"},1.5);
+tl.fromTo("#end-credit",{opacity:0},{opacity:1,duration:0.3},1.9);
+    window.__timelines["end"] = tl;
+  </script>
+</template>

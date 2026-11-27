@@ -152,6 +152,27 @@ const clips = {
     await ctx.close();
   },
 
+  /* Foods ranking: protein per ₹10, soya at the top, then a smooth scroll to whey and paneer. */
+  async rank(browser) {
+    const { ctx, page } = await newPhone(browser);
+    await openApp(page, { sample: true });
+    await page.addStyleTag({ content: '.banner--sample{display:none!important}' });
+    await page.locator('.tabs--bottom').getByRole('button', { name: 'Foods' }).click();
+    await page.waitForSelector('.foodrow');
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await sleep(600);
+    await record(page, 'rank', async () => {
+      await sleep(1600);
+      await page.evaluate(() => {
+        const w = [...document.querySelectorAll('.foodrow')].find((r) => r.textContent.includes('Whey protein'));
+        const y = w.getBoundingClientRect().top + window.scrollY - 300;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      });
+      await sleep(2600);
+    });
+    await ctx.close();
+  },
+
   /* The claimed live app, loaded fresh by URL (no overlays hidden). */
   async live(browser) {
     const { ctx, page } = await newPhone(browser);

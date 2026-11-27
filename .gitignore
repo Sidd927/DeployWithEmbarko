@@ -24,3 +24,6 @@ video/hf/assets/vo*.m4a
 video/hf/assets/vo*.mp3
 video/hf/assets/vo/
 video/exports/protein-recharge-final-voiced-9x16.mp4
+video/v2/hf/assets/vo/
+video/v2/hf/assets/vo*
+video/exports/protein-recharge-v2-*

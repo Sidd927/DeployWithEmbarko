@@ -1,0 +1,28 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:#E6EAEA;color:#14241E;font-family:'Figtree',sans-serif}
+.cam{position:absolute;left:0;top:0;width:1080px;transform-origin:0 0}
+.cam video{display:block;width:1080px;height:auto}
+.ring{position:absolute;border:6px solid #FFC21A;border-radius:22px;box-shadow:0 0 0 4px #14241E}
+.chip{position:absolute;background:#14241E;color:#FFC21A;font-family:'Bricolage',sans-serif;font-weight:800;
+      font-size:48px;letter-spacing:-.02em;padding:10px 22px;border-radius:16px;white-space:nowrap}
+</style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    <div class="cam" id="hook-cam"><video id="hook-v" class="clip" src="assets/footage/rank.mp4" data-start="0" data-duration="3.87" data-media-start="0.2" data-playback-rate="0.25" data-track-index="2" muted playsinline></video></div>
+<div class="ring" id="hook-r1"></div><div class="chip" id="hook-c1">37 g vs 4 g per ₹10</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#hook-cam",{x:0.0,y:0.0,scale:1.0},0);
+tl.to("#hook-cam",{x:-32.4,y:-3.2,scale:1.06,duration:0.6,ease:"power3.inOut"},0.05);
+
+tl.set("#hook-r1",{left:14,top:638,width:1052,height:245,opacity:0},0);
+tl.set("#hook-r1",{opacity:1},0);
+tl.set("#hook-c1",{left:130,top:526,opacity:1,scale:1,transformOrigin:"0 100%"},0);
+tl.fromTo("#hook-c1",{scale:1},{scale:1.12,duration:0.14,yoyo:true,repeat:1,ease:"power2.out"},1.75);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>
