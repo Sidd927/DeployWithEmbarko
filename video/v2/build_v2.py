@@ -35,7 +35,10 @@ for f in ("hyperframes.json", "package.json"):
 
 # ------------------------------------------------------------------ narration timeline
 segs = json.loads((ROOT / "segments_v2.json").read_text())
-man = {m["id"]: m for m in json.loads((HF / "assets" / "vo" / "manifest.json").read_text())}
+import os
+VO_DIR = os.environ.get("VO_DIR", "vo")          # "vo" = voice clone, "vo-real" = your own recording
+REAL_VOICE = VO_DIR != "vo"
+man = {m["id"]: m for m in json.loads((HF / "assets" / VO_DIR / "manifest.json").read_text())}
 GAP = {"h1": 0.25, "h2": 0.35, "p1": 0.2, "p2": 0.45, "s1": 0.15, "s2": 0.3, "w1": 0.15, "w2": 0.1,
        "w3": 0.6, "x1": 0.3, "l1": 0.35, "e1": 0.15, "e2": 0.45, "c1": 0.15, "c2": 0.0}
 LEAD = 0.25                       # first word at 0.25 s: the picture already moves at frame 0
@@ -235,7 +238,7 @@ scene("end", s9, d9, ground="#E6EAEA",
       body=f"""<div id="end-card"><div class="ec-cap">Try it free, on your phone</div>
 <div class="ec-url" id="end-url">{spans}</div><div class="ec-perf"></div>
 <div class="ec-band"><span id="end-tag">#DeployWithEmbarko</span></div></div>
-<div id="end-credit">Built by Siddhant Patil with Claude Code · live on Embarko<br>Narration: AI clone of my own voice</div>""",
+<div id="end-credit">Built by Siddhant Patil with Claude Code · live on Embarko{"" if REAL_VOICE else "<br>Narration: AI clone of my own voice"}</div>""",
       css="""#end-card{position:absolute;left:100px;right:120px;top:300px;height:640px;background:#FFC21A;border:6px solid #14241E;border-radius:44px;overflow:hidden}
 .ec-cap{position:absolute;left:52px;top:50px;font-weight:800;font-size:42px}
 .ec-url{position:absolute;left:48px;right:30px;top:118px;font-family:'Bricolage',sans-serif;font-weight:800;font-size:84px;line-height:1.02;letter-spacing:-.04em;white-space:nowrap}
@@ -299,7 +302,7 @@ def ts(x):
     return f"{ms // 3600000:02}:{ms // 60000 % 60:02}:{ms // 1000 % 60:02},{ms % 1000:03}"
 
 
-(ROOT / "protein-recharge-v2.srt").write_text(
+(ROOT / ("protein-recharge-v2-real-voice.srt" if REAL_VOICE else "protein-recharge-v2.srt")).write_text(
     "\n".join(f"{i + 1}\n{ts(a)} --> {ts(b)}\n{t_}\n" for i, (a, b, t_) in enumerate(srt)))
 
 # ------------------------------------------------------------------ sound
