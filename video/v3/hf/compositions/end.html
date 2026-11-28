@@ -1,0 +1,44 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:#14241E;color:#fff;font-family:'Figtree',sans-serif}
+.card{position:absolute;left:40px;top:230px;width:1000px;height:850px;border-radius:40px;
+      overflow:hidden;background:#E6EAEA;box-shadow:0 0 0 2px rgba(255,255,255,.08)}
+.cam{position:absolute;left:0;top:0;width:1000px;transform-origin:0 0}
+.cam video{display:block;width:1000px;height:auto}
+.ring{position:absolute;border:6px solid #FFC21A;border-radius:20px}
+.chip{position:absolute;background:#FFC21A;color:#14241E;font-family:'Bricolage',sans-serif;font-weight:800;font-size:46px;
+      letter-spacing:-.02em;padding:10px 22px 12px;border-radius:16px;white-space:nowrap}
+.flash{position:absolute;left:32px;top:222px;width:1016px;height:866px;
+       border:8px solid #FFC21A;border-radius:48px;opacity:0}
+
+#ec{position:absolute;left:40px;top:250px;width:1000px;height:620px;background:#FFC21A;border-radius:40px;overflow:hidden;color:#14241E}
+.ec-cap{position:absolute;left:56px;top:54px;font-weight:800;font-size:42px}
+.ec-url{position:absolute;left:52px;top:124px;font-family:'Bricolage',sans-serif;font-weight:800;font-size:98px;line-height:1.02;letter-spacing:-.04em;white-space:nowrap}
+.ec-url span{opacity:0}
+.ec-perf{position:absolute;left:56px;right:56px;top:378px;border-top:5px dashed rgba(20,36,30,.5)}
+.ec-band{position:absolute;left:0;right:0;bottom:0;height:236px;background:#14241E;color:#FFC21A;display:flex;align-items:center;padding:0 56px;
+  font-family:'Bricolage',sans-serif;font-weight:800;font-size:74px;letter-spacing:-.03em}
+#ec-tag{clip-path:inset(0 100% 0 0)}
+#ec-credit{position:absolute;left:150px;right:150px;top:900px;text-align:center;font-weight:600;font-size:29px;color:#9FB0AA}
+</style>
+  <div id="root" data-composition-id="end" data-width="1080" data-height="1920">
+    
+<div id="ec"><div class="ec-cap">Free. No sign-up. On your phone.</div>
+<div class="ec-url" id="ec-url"><span class="ch">p</span><span class="ch">r</span><span class="ch">o</span><span class="ch">t</span><span class="ch">e</span><span class="ch">i</span><span class="ch">n</span><span class="ch">-</span><span class="ch">r</span><span class="ch">e</span><span class="ch">c</span><span class="ch">h</span><span class="ch">a</span><span class="ch">r</span><span class="ch">g</span><span class="ch">e</span><br><span class="ch">.</span><span class="ch">e</span><span class="ch">m</span><span class="ch">b</span><span class="ch">a</span><span class="ch">r</span><span class="ch">k</span><span class="ch">o</span><span class="ch">.</span><span class="ch">a</span><span class="ch">p</span><span class="ch">p</span></div><div class="ec-perf"></div>
+<div class="ec-band"><span id="ec-tag">#DeployWithEmbarko</span></div></div>
+<div id="ec-credit">Built by Siddhant Patil with Claude Code · live on Embarko</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+tl.fromTo("#ec",{y:120,scale:0.94,opacity:0},{y:0,scale:1,opacity:1,duration:0.4,ease:"power3.out"},0);
+tl.fromTo("#ec-url .ch",{opacity:0},{opacity:1,duration:0.01,stagger:0.032},0.35);
+tl.fromTo("#ec-tag",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.4,ease:"power3.out"},1.4);
+tl.fromTo("#ec-credit",{opacity:0},{opacity:1,duration:0.3},1.8);
+tl.fromTo("#ec",{scale:1},{scale:1.05,duration:5,ease:"none"},0.45);
+    window.__timelines["end"] = tl;
+  </script>
+</template>

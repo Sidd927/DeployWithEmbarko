@@ -1,0 +1,38 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:#14241E;color:#fff;font-family:'Figtree',sans-serif}
+.card{position:absolute;left:40px;top:230px;width:1000px;height:850px;border-radius:40px;
+      overflow:hidden;background:#E6EAEA;box-shadow:0 0 0 2px rgba(255,255,255,.08)}
+.cam{position:absolute;left:0;top:0;width:1000px;transform-origin:0 0}
+.cam video{display:block;width:1000px;height:auto}
+.ring{position:absolute;border:6px solid #FFC21A;border-radius:20px}
+.chip{position:absolute;background:#FFC21A;color:#14241E;font-family:'Bricolage',sans-serif;font-weight:800;font-size:46px;
+      letter-spacing:-.02em;padding:10px 22px 12px;border-radius:16px;white-space:nowrap}
+.flash{position:absolute;left:32px;top:222px;width:1016px;height:866px;
+       border:8px solid #FFC21A;border-radius:48px;opacity:0}
+#dp-w{position:absolute;inset:0}.fcam{position:absolute;left:0;top:0;width:1080px;transform-origin:0 0}.fcam video{display:block;width:1080px;height:auto}</style>
+  <div id="root" data-composition-id="deploy" data-width="1080" data-height="1920">
+    
+<div id="dp-w"><div class="fcam" id="dp-cam"><video id="dp-v" class="clip" src="assets/footage/deploy.mp4" data-start="0" data-duration="4.49"
+ data-media-start="13.09" data-playback-rate="9.0" data-track-index="2" muted playsinline></video></div>
+<div class="ring" id="dp-r" style="left:-12px;top:826px;width:1104px;height:196px;opacity:0"></div></div>
+<div id="dp-fade" style="position:absolute;left:0;right:0;top:0;height:420px;background:linear-gradient(#14241E 0%,#14241E 30%,rgba(20,36,30,0) 100%)"></div>
+<div class="chip" id="dp-c" style="left:80px;top:1030px;font-size:36px;opacity:0">Real deploy · 9× speed · <span id="dp-t">0:13</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+tl.set("#dp-cam",{x:-37.8,y:-580.8,scale:1.07},0);
+tl.fromTo("#dp-cam",{opacity:0},{opacity:1,duration:0.2},0);
+tl.fromTo("#dp-w",{y:0},{y:-40,duration:4.49,ease:"none"},0);
+tl.to("#dp-c",{opacity:1,duration:0.15},0.15);
+tl.to("#dp-r",{opacity:1,duration:0.12},3.09);
+const clk = {v:13.09};
+tl.to(clk,{v:42.2,duration:3.234,ease:"none",
+  onUpdate:()=>{const s=Math.floor(clk.v);document.querySelector("#dp-t").textContent="0:"+String(s).padStart(2,"0");}},0);
+    window.__timelines["deploy"] = tl;
+  </script>
+</template>

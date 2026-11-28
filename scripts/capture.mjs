@@ -233,6 +233,28 @@ const clips = {
     await ctx.close();
   },
 
+  /* v3: same drag, framed one row higher so "Daily budget ₹N" is visible above the slider. */
+  async slider2(browser) {
+    const { ctx, page } = await newPhone(browser);
+    await openApp(page, { sample: true });
+    await page.addStyleTag({ content: '.banner--sample{display:none!important}' });
+    await setRange(page, '.budget input[type=range]', 12);
+    await page.evaluate(() => {
+      const el = document.querySelector('.budget');
+      window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 92);
+    });
+    await sleep(800);
+    await record(page, 'slider2', async () => {
+      await sleep(600);
+      await dragRange(page, '.budget input[type=range]', 12, 53, 4200);
+      if ((await page.locator('.budget input[type=range]').inputValue()) !== '53') {
+        await page.locator('.budget input[type=range]').fill('53');
+      }
+      await sleep(2400);
+    });
+    await ctx.close();
+  },
+
   /* The wow moment: drag the budget, the plate rebuilds, the goal is hit. */
   async slider(browser) {
     const { ctx, page } = await newPhone(browser);

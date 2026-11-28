@@ -1,0 +1,55 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:#14241E;color:#fff;font-family:'Figtree',sans-serif}
+.card{position:absolute;left:40px;top:230px;width:1000px;height:850px;border-radius:40px;
+      overflow:hidden;background:#E6EAEA;box-shadow:0 0 0 2px rgba(255,255,255,.08)}
+.cam{position:absolute;left:0;top:0;width:1000px;transform-origin:0 0}
+.cam video{display:block;width:1000px;height:auto}
+.ring{position:absolute;border:6px solid #FFC21A;border-radius:20px}
+.chip{position:absolute;background:#FFC21A;color:#14241E;font-family:'Bricolage',sans-serif;font-weight:800;font-size:46px;
+      letter-spacing:-.02em;padding:10px 22px 12px;border-radius:16px;white-space:nowrap}
+.flash{position:absolute;left:32px;top:222px;width:1016px;height:866px;
+       border:8px solid #FFC21A;border-radius:48px;opacity:0}
+
+#hook-g{position:absolute;inset:0;transform-origin:8% 40%}
+#hook-lbl{position:absolute;left:80px;top:312px;font-size:46px;font-weight:700;color:#9FB0AA}
+.hrow{position:absolute;left:80px;right:80px}
+#hook-soya{top:420px} #hook-whey{top:748px}
+.nm{display:block;font-size:54px;font-weight:700;color:#fff}
+.big{display:block;font-family:'Bricolage',sans-serif;font-weight:800;font-size:205px;line-height:.95;letter-spacing:-.05em;color:#fff;margin-top:6px}
+.big.hal{color:#FFC21A}
+.bar{height:42px;margin-top:12px;border-radius:21px;background:rgba(255,255,255,.12);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:18px}
+#hook-x{position:absolute;left:600px;top:760px;width:250px;height:250px;border-radius:50%;background:#FFC21A;color:#14241E;
+  display:flex;align-items:center;justify-content:center;font-family:'Bricolage',sans-serif;font-weight:800;font-size:124px;letter-spacing:-.05em}
+#hook-src{position:absolute;left:80px;top:372px;font-size:30px;font-weight:600;color:#9FB0AA}
+</style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    
+<div id="hook-g">
+  <p id="hook-lbl">Protein you get for ₹10</p>
+  <div class="hrow" id="hook-soya"><span class="nm">Soya chunks</span><span class="big hal">37 g</span>
+    <div class="bar"><i id="hook-b1" style="width:920px;background:#FFC21A"></i></div></div>
+  <div class="hrow" id="hook-whey"><span class="nm">Whey protein</span><span class="big">4 g</span>
+    <div class="bar"><i id="hook-b2" style="width:102px;background:#fff"></i></div></div>
+  <div id="hook-x">9×</div>
+  <p id="hook-src">Typical Indian shop prices, from the app</p>
+</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+tl.fromTo("#hook-g",{scale:1},{scale:1.045,duration:4.37,ease:"none"},0);
+tl.fromTo("#hook-b1",{width:800},{width:920,duration:0.45,ease:"power3.out"},0);
+tl.set("#hook-whey",{opacity:0},0);
+tl.set("#hook-x",{opacity:0,scale:0.4,rotation:-14},0);
+tl.fromTo("#hook-whey",{opacity:0,y:40},{opacity:1,y:0,duration:0.28,ease:"power3.out"},1.87);
+tl.fromTo("#hook-b2",{width:0},{width:102,duration:0.35,ease:"power2.out"},1.97);
+tl.to("#hook-x",{opacity:1,scale:1,rotation:-8,duration:0.34,ease:"back.out(2.2)"},2.32);
+
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

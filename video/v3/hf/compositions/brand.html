@@ -1,0 +1,36 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:#14241E;color:#fff;font-family:'Figtree',sans-serif}
+.card{position:absolute;left:40px;top:230px;width:1000px;height:850px;border-radius:40px;
+      overflow:hidden;background:#E6EAEA;box-shadow:0 0 0 2px rgba(255,255,255,.08)}
+.cam{position:absolute;left:0;top:0;width:1000px;transform-origin:0 0}
+.cam video{display:block;width:1000px;height:auto}
+.ring{position:absolute;border:6px solid #FFC21A;border-radius:20px}
+.chip{position:absolute;background:#FFC21A;color:#14241E;font-family:'Bricolage',sans-serif;font-weight:800;font-size:46px;
+      letter-spacing:-.02em;padding:10px 22px 12px;border-radius:16px;white-space:nowrap}
+.flash{position:absolute;left:32px;top:222px;width:1016px;height:866px;
+       border:8px solid #FFC21A;border-radius:48px;opacity:0}
+
+#br-p{position:absolute;left:0;right:0;top:0;height:1080px;background:#FFC21A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;padding-top:120px}
+#br-m{width:200px;height:200px;background:url('assets/mark.svg') center/contain no-repeat}
+#br-n{font-family:'Bricolage',sans-serif;font-weight:800;font-size:170px;line-height:.92;letter-spacing:-.045em;color:#14241E;text-align:center}
+</style>
+  <div id="root" data-composition-id="brand" data-width="1080" data-height="1920">
+    
+<div id="br-p"><div id="br-m"></div><div id="br-n">Protein<br>Recharge</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+tl.fromTo("#br-p",{clipPath:"inset(100% 0 0 0)"},{clipPath:"inset(0% 0 0 0)",duration:0.32,ease:"power3.out"},0);
+tl.fromTo("#br-m",{scale:0.3,rotation:-14},{scale:1,rotation:0,duration:0.4,ease:"back.out(1.8)"},0.12);
+tl.fromTo("#br-n",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.3,ease:"power3.out"},0.22);
+tl.fromTo("#br-n",{y:0},{y:-22,duration:2.61,ease:"none"},0.5);
+tl.to("#br-m",{rotation:8,scale:1.08,duration:2.56,ease:"none"},0.52);
+
+    window.__timelines["brand"] = tl;
+  </script>
+</template>

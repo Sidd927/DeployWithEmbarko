@@ -1,0 +1,28 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:#14241E;color:#fff;font-family:'Figtree',sans-serif}
+.card{position:absolute;left:40px;top:230px;width:1000px;height:850px;border-radius:40px;
+      overflow:hidden;background:#E6EAEA;box-shadow:0 0 0 2px rgba(255,255,255,.08)}
+.cam{position:absolute;left:0;top:0;width:1000px;transform-origin:0 0}
+.cam video{display:block;width:1000px;height:auto}
+.ring{position:absolute;border:6px solid #FFC21A;border-radius:20px}
+.chip{position:absolute;background:#FFC21A;color:#14241E;font-family:'Bricolage',sans-serif;font-weight:800;font-size:46px;
+      letter-spacing:-.02em;padding:10px 22px 12px;border-radius:16px;white-space:nowrap}
+.flash{position:absolute;left:32px;top:222px;width:1016px;height:866px;
+       border:8px solid #FFC21A;border-radius:48px;opacity:0}
+</style>
+  <div id="root" data-composition-id="site" data-width="1080" data-height="1920">
+    <div class="card" id="site-card"><div class="cam" id="site-cam"><video id="site-v" class="clip" src="assets/footage/embarko.mp4" data-start="0" data-duration="1.79" data-media-start="1.6" data-playback-rate="1.0" data-track-index="2" muted playsinline></video></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#site-cam",{x:0.0,y:-467.4,scale:1.0},0);
+tl.fromTo("#site-cam",{y:-397.4,opacity:0.2},{y:-467.4,opacity:1,duration:0.32,ease:"power3.out"},0);
+tl.to("#site-cam",{x:-25.0,y:-492.3,scale:1.05,duration:1.49,ease:"sine.inOut"},0.2);
+
+    window.__timelines["site"] = tl;
+  </script>
+</template>
