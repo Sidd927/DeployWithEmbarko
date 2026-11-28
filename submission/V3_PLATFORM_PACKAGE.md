@@ -1,5 +1,9 @@
 # V3 Platform Package and Posting Steps
 
+> **Final (28 Nov, v5):** post **`video/exports/protein-recharge-v5-final-9x16.mp4`**. It's V4 with the burned-in captions removed, so the app is never covered.
+> - Captions now come from the platforms. **Instagram:** turn auto-generated captions **ON**. **YouTube:** upload `video/v5/protein-recharge-v5.srt` as English subtitles. **X:** attach the same SRT as captions when uploading on the web.
+> - These replace the "auto-captions off / don't upload the SRT" advice below; everything else applies unchanged.
+
 > **Update (28 Nov, v4):** the recommended video is now **`video/exports/protein-recharge-v4-9x16.mp4`**.
 > - It's 46.4 s, uses the same voice and the same captions text, and the full-screen app footage is new.
 > - All copy, settings and steps below apply unchanged. Use `video/v4/protein-recharge-v4.srt` if a platform asks for subtitles (the captions are burned in, so normally skip it).

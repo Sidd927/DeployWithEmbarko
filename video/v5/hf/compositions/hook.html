@@ -1,0 +1,29 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:#14241E;color:#fff;font-family:'Figtree',sans-serif}
+.cam{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:0 0}
+.cam video{position:absolute;left:0;top:0;width:1080px;height:1920px;display:block}
+.cam video.dep{height:2337.2px}
+.ring{position:absolute;border:6px solid #FFC21A;border-radius:18px;box-shadow:0 0 0 3px rgba(20,36,30,.18)}
+.chip{position:absolute;display:flex;align-items:center;gap:14px;background:#14241E;color:#fff;font-weight:700;font-size:34px;
+      padding:12px 24px 14px;border-radius:999px;white-space:nowrap}
+.chip i{width:16px;height:16px;border-radius:50%;background:#3ccf7e;display:block}
+.chip b{color:#FFC21A;font-weight:800}
+</style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    <div class="cam" id="hook-cam"><video id="hook-v0" class="clip" src="assets/footage/foods.mp4" data-start="0" data-duration="6.56" data-media-start="0.207" data-playback-rate="1" data-track-index="2" muted playsinline></video><div class="ring" id="hook-s" style="left:66px;top:618px;width:948px;height:291px"></div><div class="ring" id="hook-r" style="left:66px;top:732px;width:948px;height:294px;opacity:0"></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#hook-cam",{x:-43.2,y:0.0,scale:1.08},0);
+tl.to("#hook-cam",{x:-43.2,y:-120,scale:1.08,duration:0.6,ease:"power2.inOut"},2.0);
+tl.to("#hook-cam",{x:-64.8,y:-150,scale:1.12,duration:1.77,ease:"sine.inOut"},2.6);
+tl.to("#hook-cam",{x:0.0,y:0.0,scale:1.0,duration:1.4,ease:"power2.inOut"},4.37);
+tl.to("#hook-s",{opacity:0,duration:0.12},1.95);
+tl.fromTo("#hook-r",{opacity:0,scale:1.12},{opacity:1,scale:1,duration:0.22,ease:"power3.out"},2.98);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

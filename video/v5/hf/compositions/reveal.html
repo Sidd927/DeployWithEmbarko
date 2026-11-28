@@ -1,0 +1,26 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:#14241E;color:#fff;font-family:'Figtree',sans-serif}
+.cam{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:0 0}
+.cam video{position:absolute;left:0;top:0;width:1080px;height:1920px;display:block}
+.cam video.dep{height:2337.2px}
+.ring{position:absolute;border:6px solid #FFC21A;border-radius:18px;box-shadow:0 0 0 3px rgba(20,36,30,.18)}
+.chip{position:absolute;display:flex;align-items:center;gap:14px;background:#14241E;color:#fff;font-weight:700;font-size:34px;
+      padding:12px 24px 14px;border-radius:999px;white-space:nowrap}
+.chip i{width:16px;height:16px;border-radius:50%;background:#3ccf7e;display:block}
+.chip b{color:#FFC21A;font-weight:800}
+</style>
+  <div id="root" data-composition-id="reveal" data-width="1080" data-height="1920">
+    <div class="cam" id="reveal-cam"><video id="reveal-v0" class="clip" src="assets/footage/setup.mp4" data-start="0" data-duration="3.21" data-media-start="0.0" data-playback-rate="0.8" data-track-index="2" muted playsinline></video></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#reveal-cam",{x:-46.2,y:0.0,scale:1.1},0);
+tl.to("#reveal-cam",{x:-47.5,y:0.0,scale:1.13,duration:3.21,ease:"sine.inOut"},0);
+
+    window.__timelines["reveal"] = tl;
+  </script>
+</template>

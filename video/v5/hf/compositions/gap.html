@@ -1,0 +1,30 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0;overflow:hidden;background:#14241E;color:#fff;font-family:'Figtree',sans-serif}
+.cam{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:0 0}
+.cam video{position:absolute;left:0;top:0;width:1080px;height:1920px;display:block}
+.cam video.dep{height:2337.2px}
+.ring{position:absolute;border:6px solid #FFC21A;border-radius:18px;box-shadow:0 0 0 3px rgba(20,36,30,.18)}
+.chip{position:absolute;display:flex;align-items:center;gap:14px;background:#14241E;color:#fff;font-weight:700;font-size:34px;
+      padding:12px 24px 14px;border-radius:999px;white-space:nowrap}
+.chip i{width:16px;height:16px;border-radius:50%;background:#3ccf7e;display:block}
+.chip b{color:#FFC21A;font-weight:800}
+</style>
+  <div id="root" data-composition-id="gap" data-width="1080" data-height="1920">
+    <div class="cam" id="gap-cam"><video id="gap-v0" class="clip" src="assets/footage/plan.mp4" data-start="0" data-duration="5.41" data-media-start="0.3" data-playback-rate="1" data-track-index="2" muted playsinline></video><div class="ring" id="gap-a" style="left:630px;top:393px;width:219px;height:150px;opacity:0"></div><div class="ring" id="gap-b" style="left:27px;top:393px;width:273px;height:150px;opacity:0"></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#gap-cam",{x:-324.0,y:0.0,scale:1.3},0);
+tl.to("#gap-cam",{x:-367.2,y:0.0,scale:1.34,duration:2.4,ease:"sine.inOut"},0);
+tl.to("#gap-cam",{x:0.0,y:0.0,scale:1.34,duration:1.3,ease:"power2.inOut"},2.63);
+tl.to("#gap-cam",{x:0.0,y:0.0,scale:1.38,duration:0.64,ease:"sine.out"},4.77);
+tl.fromTo("#gap-a",{opacity:0,scale:1.12},{opacity:1,scale:1,duration:0.22,ease:"power3.out"},1.12);
+tl.to("#gap-a",{opacity:0,duration:0.2},4.37);
+tl.fromTo("#gap-b",{opacity:0,scale:1.12},{opacity:1,scale:1,duration:0.22,ease:"power3.out"},4.42);
+    window.__timelines["gap"] = tl;
+  </script>
+</template>
