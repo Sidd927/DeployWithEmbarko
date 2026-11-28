@@ -12,17 +12,17 @@
 #problem-block{position:absolute;inset:0;background:#E6EAEA;display:flex;flex-direction:column;justify-content:flex-start;padding-top:430px !important;
              padding:0 120px 0 130px;font-family:'Bricolage',sans-serif;font-weight:800;font-size:140px;line-height:.95;letter-spacing:-.045em;opacity:0}</style>
   <div id="root" data-composition-id="problem" data-width="1080" data-height="1920">
-    <div class="cam" id="problem-cam"><video id="problem-v" class="clip" src="assets/footage/packs.mp4" data-start="0" data-duration="7.065" data-media-start="0.2" data-playback-rate="0.2" data-track-index="2" muted playsinline></video></div>
+    <div class="cam" id="problem-cam"><video id="problem-v" class="clip" src="assets/footage/packs.mp4" data-start="0" data-duration="8.76" data-media-start="0.2" data-playback-rate="0.2" data-track-index="2" muted playsinline></video></div>
 <div id="problem-block"><span>½ kg of soya</span><span>a day?</span></div>
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
     tl.set("#problem-cam",{x:0.0,y:0.0,scale:1.0},0);
-tl.to("#problem-cam",{x:-32.4,y:0.0,scale:1.06,duration:2.5,ease:"power3.inOut"},0.2);
+tl.to("#problem-cam",{x:-37.8,y:0.0,scale:1.07,duration:8.56,ease:"power3.inOut"},0.1);
 
 tl.set("#problem-block",{opacity:1},0);
 tl.fromTo("#problem-block span",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.25,stagger:0.18,ease:"power3.out"},0.05);
-tl.set("#problem-block",{opacity:0},2.18);
+tl.set("#problem-block",{opacity:0},3.15);
     window.__timelines["problem"] = tl;
   </script>
 </template>

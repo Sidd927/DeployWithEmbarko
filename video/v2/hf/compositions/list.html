@@ -11,12 +11,13 @@
       font-size:48px;letter-spacing:-.02em;padding:10px 22px;border-radius:16px;white-space:nowrap}
 </style>
   <div id="root" data-composition-id="list" data-width="1080" data-height="1920">
-    <div class="cam" id="list-cam"><video id="list-v" class="clip" src="assets/footage/list.mp4" data-start="0" data-duration="2.01" data-media-start="0.8" data-playback-rate="1.4" data-track-index="2" muted playsinline></video></div>
+    <div class="cam" id="list-cam"><video id="list-v" class="clip" src="assets/footage/list.mp4" data-start="0" data-duration="2.29" data-media-start="0.8" data-playback-rate="1.4" data-track-index="2" muted playsinline></video></div>
 
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    tl.set("#list-cam",{x:-21.6,y:-104.0,scale:1.04},0);
+    tl.set("#list-cam",{x:0.0,y:-90.8,scale:1.0},0);
+tl.to("#list-cam",{x:-32.4,y:-100.6,scale:1.06,duration:2.19,ease:"power3.inOut"},0.05);
 
     window.__timelines["list"] = tl;
   </script>

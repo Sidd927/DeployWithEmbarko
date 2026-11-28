@@ -25,7 +25,8 @@
   "start": 0,
   "end": 30,
   "scene": "equation",
-  "text": "Mess food gets you maybe thirty grams. If you work out, you need over a hundred."
+  "text": "Mess food gets you maybe thirty grams. If you work out, you need over a hundred.",
+  "spoken_real": "Mess food gives you maybe thirty grams. If you work out, you need over a hundred."
  },
  {
   "id": "s1",
@@ -53,14 +54,16 @@
   "start": 0,
   "end": 30,
   "scene": "slider",
-  "text": "Watch the plate rebuild as you go,"
+  "text": "Watch the plate rebuild as you go,",
+  "spoken_real": "And watch the plate rebuild as you go,"
  },
  {
   "id": "w3",
   "start": 0,
   "end": 30,
   "scene": "goal",
-  "text": "and at fifty-three rupees a day, you actually hit your goal."
+  "text": "and at fifty-three rupees a day, you actually hit your goal.",
+  "spoken_real": "At ₹53 a day, you actually hit your goal."
  },
  {
   "id": "x1",
@@ -88,7 +91,8 @@
   "start": 0,
   "end": 30,
   "scene": "deploy",
-  "text": "My coding agent followed one prompt, and it was live in under a minute."
+  "text": "My coding agent followed one prompt, and it was live in under a minute.",
+  "spoken_real": "My coding agent followed one prompt. It was live under a minute."
  },
  {
   "id": "c1",

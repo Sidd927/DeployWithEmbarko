@@ -22,7 +22,7 @@
     <div id="end-card"><div class="ec-cap">Try it free, on your phone</div>
 <div class="ec-url" id="end-url"><span class="ch">p</span><span class="ch">r</span><span class="ch">o</span><span class="ch">t</span><span class="ch">e</span><span class="ch">i</span><span class="ch">n</span><span class="ch">-</span><span class="ch">r</span><span class="ch">e</span><span class="ch">c</span><span class="ch">h</span><span class="ch">a</span><span class="ch">r</span><span class="ch">g</span><span class="ch">e</span><br><span class="ch">.</span><span class="ch">e</span><span class="ch">m</span><span class="ch">b</span><span class="ch">a</span><span class="ch">r</span><span class="ch">k</span><span class="ch">o</span><span class="ch">.</span><span class="ch">a</span><span class="ch">p</span><span class="ch">p</span></div><div class="ec-perf"></div>
 <div class="ec-band"><span id="end-tag">#DeployWithEmbarko</span></div></div>
-<div id="end-credit">Built by Siddhant Patil with Claude Code · live on Embarko<br>Narration: AI clone of my own voice</div>
+<div id="end-credit">Built by Siddhant Patil with Claude Code · live on Embarko</div>
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
@@ -31,6 +31,7 @@ tl.fromTo("#end-card",{clipPath:"inset(0 100% 0 0 round 44px)"},{clipPath:"inset
 tl.fromTo("#end-url .ch",{opacity:0},{opacity:1,duration:0.01,stagger:0.035},0.35);
 tl.fromTo("#end-tag",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.4,ease:"power3.out"},1.5);
 tl.fromTo("#end-credit",{opacity:0},{opacity:1,duration:0.3},1.9);
+tl.fromTo("#end-card",{scale:1},{scale:1.035,duration:6,ease:"none"},0.4);
     window.__timelines["end"] = tl;
   </script>
 </template>

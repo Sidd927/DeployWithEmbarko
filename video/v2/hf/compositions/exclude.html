@@ -11,12 +11,13 @@
       font-size:48px;letter-spacing:-.02em;padding:10px 22px;border-radius:16px;white-space:nowrap}
 </style>
   <div id="root" data-composition-id="exclude" data-width="1080" data-height="1920">
-    <div class="cam" id="exclude-cam"><video id="exclude-v" class="clip" src="assets/footage/exclude.mp4" data-start="0" data-duration="3.98" data-media-start="0.7" data-playback-rate="1.25" data-track-index="2" muted playsinline></video></div>
+    <div class="cam" id="exclude-cam"><video id="exclude-v" class="clip" src="assets/footage/exclude.mp4" data-start="0" data-duration="3.94" data-media-start="0.7" data-playback-rate="1.25" data-track-index="2" muted playsinline></video></div>
 
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    tl.set("#exclude-cam",{x:-21.6,y:-144.0,scale:1.04},0);
+    tl.set("#exclude-cam",{x:0.0,y:-130.8,scale:1.0},0);
+tl.to("#exclude-cam",{x:-32.4,y:-140.6,scale:1.06,duration:3.84,ease:"power3.inOut"},0.05);
 
     window.__timelines["exclude"] = tl;
   </script>

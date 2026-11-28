@@ -1,5 +1,7 @@
 # V2 Production Report: "The ₹10 Test"
 
+> **Final (28 Nov): `video/exports/protein-recharge-v2-real-voice-9x16.mp4`, narrated in Siddhant's REAL voice.** 47.8 s. See "Real-voice version" at the end. The clone-voice v2 (`protein-recharge-v2-9x16.mp4`) and both v1 files are untouched as fallbacks.
+
 **Final v2 video:** `video/exports/protein-recharge-v2-9x16.mp4` (local, git-ignored: it contains the cloned voice).
 **v1 is untouched:** `protein-recharge-final-voiced-9x16.mp4` and `protein-recharge-demo-9x16.mp4`, unchanged, as the rollback.
 
@@ -97,3 +99,31 @@ Fixed during QA:
 
 ## L. Submission update plan
 In `submission/V2_PLATFORM_PACKAGE.md` → "Updating the competition submission".
+
+## Real-voice version (28 Nov 2026)
+**File:** `video/exports/protein-recharge-v2-real-voice-9x16.mp4` (local, git-ignored) · subtitles `video/v2/protein-recharge-v2-real-voice.srt`
+
+**Recording:** `v2-real.m4a.aifc`, 103.6 s, two full reads. About **46.6 dB SNR**, against 16 dB for the first recording, with a noise floor of -61 dBFS and peak -1.4 dBFS. The room fixes worked.
+
+**Take selection:** every line was located in both takes by character-level matching. Both versions were cut out and transcribed on their own, and the clearer one won (take 2 on a tie). **Take 1 won 3 lines** (h2, p1, p2) and **take 2 won 12**. The decisive cases: take 1's "your weight, your diet…" came out as "You wait, you died…", and take 2's soya line as "…half a kilos of everything".
+
+**Cleanup (deliberately light):** 80 Hz high-pass, light FFT denoise (nr 10), de-esser 0.35, 2:1 compression, -16 LUFS per line, 20 ms fades. Breaths were kept, and nothing was pitch- or time-shifted.
+
+**Problems found and fixed during QA:**
+1. Word-level matching dropped edge words ("But nobody's", "Embarko", "friend"). Fixed with character-level matching and a re-transcription of every exported clip.
+2. "friend" was clipped by 60 ms: the transcriber split it into "freak / now". Fixed by keeping words glued with no gap, without crossing into the next script line.
+3. Captions spread evenly where your wording differed from the script ("And watch…", "It was live under a minute"). Fixed by aligning each caption word to your real word timestamps. Captions now show what you said.
+4. **Whisper starts words early**, so line-start captions led your voice by up to 0.62 s, and the hook opened with **0.74 s of dead air**. Fixed by trimming every line to its measured voice onset (energy, minus 60 ms).
+5. The hook was static for seconds 1–3 (your natural line is longer than the clone's). Fixed with slow continuous camera pushes over whole shots.
+6. Chip positions set only by script read as out of the safe zone. Positions are now in the HTML.
+
+**Final measurements (encoded file):**
+- 47.8 s, 1080 × 1920, 30 fps, H.264/AAC, clean decode, 0 black frames, no silence over 1.2 s.
+- **-13.1 LUFS, -1.00 dBTP**, 2.4 LU range.
+- Near-static seconds: 13 of 47 (28%), against 61% in v1.
+- `hyperframes check`: 0 errors.
+- Caption sync: line starts at 0.00 s median, 0.12 s max (by voice onset). Mid-line at 0.04 s median, 0.28 s max (by transcript).
+- Goal hit: the meter turns green at 26.86 s, during "At ₹53 a day".
+- All 15 lines intelligible in the final mix. Short-window misreads ("schedule", "dream") read correctly with context.
+
+**Not machine-checkable:** how it *feels*. That's your listen.

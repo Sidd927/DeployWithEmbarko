@@ -1,8 +1,8 @@
 # V2 Platform Package and Reach Playbook
 
-**Video:** `video/exports/protein-recharge-v2-9x16.mp4` (45.7 s, 1080 × 1920, narrated in an AI clone of your voice). It's local only and git-ignored, so you upload it yourself.
+**Video:** `video/exports/protein-recharge-v2-real-voice-9x16.mp4` (**47.8 s, narrated in your real voice**). It's local only and git-ignored, so you upload it yourself. (Fallback: `protein-recharge-v2-9x16.mp4`, the clone voice. If you post that one, add back the AI-voice lines and labels.)
 **Covers:** `video/exports/cover-v2-reels-1080x1920.png` · `video/exports/thumbnail-v2-youtube-1280x720.png`
-**Captions file:** `video/v2/protein-recharge-v2.srt` (word-timed to the narration)
+**Captions file:** `video/v2/protein-recharge-v2-real-voice.srt` (timed to your real voice)
 **App:** https://protein-recharge.embarko.app
 
 Every primary post needs **#DeployWithEmbarko** and the app link (competition rule), and must stay **public until results (~5 Dec)**.
@@ -26,13 +26,12 @@ But nobody can eat half a kilo of soya a day. So I built Protein Recharge: tell 
 Free, no sign-up → protein-recharge.embarko.app (link in bio)
 
 Prices are typical shop estimates you can edit in the app. Not medical advice.
-🎙️ Narration: AI clone of my own voice.
 
 #DeployWithEmbarko #soyachunks #protein #hostellife #gymindia
 ```
 Five hashtags, the current cap, all specific to the audience.
 
-**Settings:** turn on the **AI info** label (synthetic voice). Turn on auto-captions.
+**Settings:** turn on auto-captions. No AI label is needed for the voice, because it's your real voice.
 
 **Pinned comment:** `Comment your daily budget + diet (veg/egg/non-veg) and I'll reply with your cheapest plan 👇`
 
@@ -60,12 +59,11 @@ Try it free (no sign-up): https://protein-recharge.embarko.app
 • Skip or pin foods, set your shop's prices, weekly shopping list
 
 Built with Claude Code and deployed on Embarko (the deploy in the video is real, sped up 9×).
-Narration: AI clone of my own voice (NarraReel + Chatterbox).
 Prices are editable estimates; targets follow ICMR-NIN 2024. Not medical advice.
 
 #DeployWithEmbarko #protein #soyachunks
 ```
-**Settings:** altered or synthetic content → **Yes** (voice clone). Upload `protein-recharge-v2.srt` as English subtitles. Use the thumbnail image for the channel page (Shorts in the feed use a frame you pick: pick **frame 0**, the soya row and chip).
+**Settings:** altered or synthetic content → **No** for the real-voice version (answer **Yes** only if you post the clone-voice fallback). Upload `protein-recharge-v2-real-voice.srt` as English subtitles. Use the thumbnail image for the channel page (Shorts in the feed use a frame you pick: pick **frame 0**, the soya row and chip).
 **Pinned comment:** `What's your daily budget and diet? I'll tell you the cheapest plan the app finds.`
 **Channel:** add the app link to the channel's links.
 
@@ -80,7 +78,7 @@ Nobody eats half a kilo of soya a day though, so I built an optimiser that finds
 
 #DeployWithEmbarko
 ```
-**Reply 1:** `Try it (free, no sign-up): https://protein-recharge.embarko.app. Built with Claude Code, deployed on @Embarko (check the handle first). Narration is an AI clone of my own voice.`
+**Reply 1:** `Try it (free, no sign-up): https://protein-recharge.embarko.app. Built with Claude Code, deployed on @Embarko (check the handle first).`
 **Reply 2 (optional thread):** `How it works: a bounded-knapsack DP runs in your browser. One table answers both "cheapest plan for 79 g" and "most protein for ₹49", so the budget slider re-plans instantly.`
 **Follow-up post, 1–2 days later:** a screenshot of the Foods ranking with a question: "What does protein cost in your city? I'll add regional prices."
 

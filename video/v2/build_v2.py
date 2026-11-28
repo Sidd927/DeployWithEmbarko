@@ -139,7 +139,7 @@ Z1, CY1 = 1.06, 760
 rx0, ry0 = to_canvas(30, 655, *SOYA_ROW, Z1, CY1)
 rx1, ry1 = to_canvas(1140, 905, *SOYA_ROW, Z1, CY1)
 scene("hook", s1, d1a, video={"src": "rank.mp4", "ms": 0.2, "rate": 0.25},
-      cam=[(0, SOYA_ROW[0], SOYA_ROW[1], 1.0, CY1, 0), (0.05, SOYA_ROW[0], SOYA_ROW[1], Z1, CY1, 0.6)],
+      cam=[(0, SOYA_ROW[0], SOYA_ROW[1], 1.0, CY1 + 40, 0), (0.05, SOYA_ROW[0], SOYA_ROW[1], Z1, CY1, round(d1a - 0.1, 2))],
       body='<div class="ring" id="hook-r1"></div><div class="chip" id="hook-c1">37 g vs 4 g per ₹10</div>',
       tl_extra=f"""
 tl.set("#hook-r1",{{left:{max(14, round(rx0))},top:{round(ry0)},width:{min(1052, round(rx1 - rx0))},height:{round(ry1 - ry0)},opacity:0}},0);
@@ -161,7 +161,7 @@ tl.to("#hook2-r1",{{opacity:1,duration:0.12}},{round(min(d1b - 0.4, 1.25), 2)});
 s2 = at("p1") - 0.05
 d2 = at("s1") - s2
 scene("problem", s2, d2, video={"src": "packs.mp4", "ms": 0.2, "rate": 0.2},
-      cam=[(0, EQUATION[0], EQUATION[1], 1.0, 620, 0), (0.2, EQUATION[0], EQUATION[1], 1.06, 640, 2.5)],
+      cam=[(0, EQUATION[0], EQUATION[1], 1.0, 600, 0), (0.1, EQUATION[0], EQUATION[1], 1.07, 660, round(d2 - 0.2, 2))],
       body='<div id="problem-block"><span>½ kg of soya</span><span>a day?</span></div>',
       css="""#problem-block{position:absolute;inset:0;background:#E6EAEA;display:flex;flex-direction:column;justify-content:flex-start;padding-top:430px !important;
              padding:0 120px 0 130px;font-family:'Bricolage',sans-serif;font-weight:800;font-size:140px;line-height:.95;letter-spacing:-.045em;opacity:0}""",
@@ -195,28 +195,28 @@ green_at = round((GREEN_MEDIA - ms4) / rate4, 3)  # scene-local time the meter t
 scene("wow", s4, d4, video={"src": "slider.mp4", "ms": ms4, "rate": rate4},
       cam=[(0, 585, 700, 1.0, 560, 0),
            (0.6, METER[0], METER[1], 1.07, 600, 0.7)],
-      body='<div class="chip" id="wow-c1">₹53 a day</div>',
+      body='<div class="chip" id="wow-c1" style="left:300px;top:372px;opacity:0">₹53 a day</div>',
       tl_extra=f"""
-tl.set("#wow-c1",{{left:300,top:330,opacity:0,scale:0.7}},0);
+tl.set("#wow-c1",{{opacity:0,scale:0.7}},0);
 tl.to("#wow-c1",{{opacity:1,scale:1,duration:0.24,ease:"back.out(2.2)"}},{round(green_at + 0.05, 2)});""")
 
 # 5. Personalise: skip soya, re-plan.
 s5 = at("x1") - 0.05
 d5 = at("l1") - s5
 scene("exclude", s5, d5, video={"src": "exclude.mp4", "ms": 0.7, "rate": 1.25},
-      cam=[(0, 585, 900, 1.04, 720, 0)])
+      cam=[(0, 585, 900, 1.0, 700, 0), (0.05, 585, 900, 1.06, 740, round(d5 - 0.1, 2))])
 
 # 6. Shopping list.
 s6 = at("l1") - 0.05
 d6 = at("e1") - s6
 scene("list", s6, d6, video={"src": "list.mp4", "ms": 0.8, "rate": 1.4},
-      cam=[(0, 585, 900, 1.04, 760, 0)])
+      cam=[(0, 585, 900, 1.0, 740, 0), (0.05, 585, 900, 1.06, 780, round(d6 - 0.1, 2))])
 
 # 7. Embarko: the real site's prompt button, then the real deploy at 8x landing on "live".
 s7 = at("e1") - 0.05
 d7 = at("e2") - s7
 scene("embarko", s7, d7, video={"src": "embarko.mp4", "ms": 1.6, "rate": 1.0},
-      cam=[(0, 585, 1150, 1.0, 700, 0), (0.1, 585, 1150, 1.06, 720, 1.2)])
+      cam=[(0, 585, 1150, 1.0, 680, 0), (0.05, 585, 1150, 1.07, 730, round(d7 - 0.1, 2))])
 s8 = at("e2") - 0.05
 d8 = at("c1") - s8
 RATE8 = 9.0
@@ -224,8 +224,8 @@ LIVE_MEDIA = 40.0                 # the "Live: https://..." line prints at about
 ms8 = round(max(8.0, LIVE_MEDIA - (d8 - 1.5) * RATE8), 2)
 scene("deploy", s8, d8, video={"src": "deploy.mp4", "ms": ms8, "rate": RATE8},
       cam=[(0, 585, 1250, 1.07, 600, 0)],
-      body='<div class="chip" id="deploy-c1">Real deploy, 9× speed</div><div class="ring" id="deploy-r1"></div>',
-      tl_extra=f"""tl.set("#deploy-c1",{{left:130,top:1222,opacity:1}},0);
+      body='<div class="chip" id="deploy-c1" style="left:130px;top:372px">Real deploy, 9× speed</div><div class="ring" id="deploy-r1"></div>',
+      tl_extra=f"""tl.set("#deploy-c1",{{opacity:1}},0);
 tl.set("#deploy-r1",{{left:-12,top:826,width:1104,height:196,opacity:0}},0);
 tl.to("#deploy-r1",{{opacity:1,duration:0.12}},{round(d8 - 1.4, 2)});""")
 
@@ -252,7 +252,8 @@ scene("end", s9, d9, ground="#E6EAEA",
 tl.fromTo("#end-card",{clipPath:"inset(0 100% 0 0 round 44px)"},{clipPath:"inset(0 0% 0 0 round 44px)",duration:0.4,ease:"power3.out"},0);
 tl.fromTo("#end-url .ch",{opacity:0},{opacity:1,duration:0.01,stagger:0.035},0.35);
 tl.fromTo("#end-tag",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:0.4,ease:"power3.out"},1.5);
-tl.fromTo("#end-credit",{opacity:0},{opacity:1,duration:0.3},1.9);""")
+tl.fromTo("#end-credit",{opacity:0},{opacity:1,duration:0.3},1.9);
+tl.fromTo("#end-card",{scale:1},{scale:1.035,duration:6,ease:"none"},0.4);""")
 
 # brand mark file for the reveal
 (HF / "assets" / "mark.svg").write_text(

@@ -11,15 +11,15 @@
       font-size:48px;letter-spacing:-.02em;padding:10px 22px;border-radius:16px;white-space:nowrap}
 </style>
   <div id="root" data-composition-id="deploy" data-width="1080" data-height="1920">
-    <div class="cam" id="deploy-cam"><video id="deploy-v" class="clip" src="assets/footage/deploy.mp4" data-start="0" data-duration="3.75" data-media-start="19.75" data-playback-rate="9.0" data-track-index="2" muted playsinline></video></div>
-<div class="chip" id="deploy-c1">Real deploy, 9× speed</div><div class="ring" id="deploy-r1"></div>
+    <div class="cam" id="deploy-cam"><video id="deploy-v" class="clip" src="assets/footage/deploy.mp4" data-start="0" data-duration="4.59" data-media-start="12.19" data-playback-rate="9.0" data-track-index="2" muted playsinline></video></div>
+<div class="chip" id="deploy-c1" style="left:130px;top:372px">Real deploy, 9× speed</div><div class="ring" id="deploy-r1"></div>
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
     tl.set("#deploy-cam",{x:-37.8,y:-580.8,scale:1.07},0);
-tl.set("#deploy-c1",{left:130,top:1222,opacity:1},0);
+tl.set("#deploy-c1",{opacity:1},0);
 tl.set("#deploy-r1",{left:-12,top:826,width:1104,height:196,opacity:0},0);
-tl.to("#deploy-r1",{opacity:1,duration:0.12},2.35);
+tl.to("#deploy-r1",{opacity:1,duration:0.12},3.19);
     window.__timelines["deploy"] = tl;
   </script>
 </template>
