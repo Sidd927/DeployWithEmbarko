@@ -1,0 +1,67 @@
+<template>
+  <style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage.woff2') format('woff2');font-weight:200 800;font-display:block}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree.woff2') format('woff2');font-weight:300 900;font-display:block}
+
+#root{position:absolute;inset:0}
+.cap{position:absolute;left:60px;right:192px;top:1114px;display:flex;justify-content:center;text-align:center}
+.cap .in{display:inline;font-family:'Figtree',sans-serif;font-weight:800;font-size:44px;line-height:1.44;color:#FFFFFF;
+  background:rgba(20,36,30,.9);padding:5px 20px 8px;border-radius:16px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.cap .w{display:block}
+.cap b{color:#FFC21A;font-weight:800}
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div id="cap1" class="cap clip" data-start="0.05" data-duration="1.84" data-track-index="2"><div class="w"><span class="in">Per rupee, <b>soya</b> chunks give you</span></div></div>
+<div id="cap2" class="cap clip" data-start="1.92" data-duration="2.23" data-track-index="2"><div class="w"><span class="in"><b>nine</b> times the protein of <b>whey.</b></span></div></div>
+<div id="cap3" class="cap clip" data-start="4.48" data-duration="1.76" data-track-index="2"><div class="w"><span class="in"><b>Whey</b> is way down the list.</span></div></div>
+<div id="cap4" class="cap clip" data-start="6.67" data-duration="1.37" data-track-index="2"><div class="w"><span class="in">But nobody's eating half a kilo</span></div></div>
+<div id="cap5" class="cap clip" data-start="8.07" data-duration="1.47" data-track-index="2"><div class="w"><span class="in">of <b>soya</b> every day.</span></div></div>
+<div id="cap6" class="cap clip" data-start="9.82" data-duration="1.83" data-track-index="2"><div class="w"><span class="in">Mess food gives you maybe thirty grams.</span></div></div>
+<div id="cap7" class="cap clip" data-start="12.4" data-duration="0.77" data-track-index="2"><div class="w"><span class="in">If you work out,</span></div></div>
+<div id="cap8" class="cap clip" data-start="13.2" data-duration="1.55" data-track-index="2"><div class="w"><span class="in">you need over a hundred.</span></div></div>
+<div id="cap9" class="cap clip" data-start="15.23" data-duration="1.5" data-track-index="2"><div class="w"><span class="in">So I built an app that</span></div></div>
+<div id="cap10" class="cap clip" data-start="16.76" data-duration="1.35" data-track-index="2"><div class="w"><span class="in">does the math for you.</span></div></div>
+<div id="cap11" class="cap clip" data-start="18.34" data-duration="1.41" data-track-index="2"><div class="w"><span class="in">Your weight, your diet,</span></div></div>
+<div id="cap12" class="cap clip" data-start="19.98" data-duration="1.43" data-track-index="2"><div class="w"><span class="in">your kettle, your mess meals.</span></div></div>
+<div id="cap13" class="cap clip" data-start="21.79" data-duration="1.38" data-track-index="2"><div class="w"><span class="in">Now drag your budget.</span></div></div>
+<div id="cap14" class="cap clip" data-start="23.46" data-duration="2.13" data-track-index="2"><div class="w"><span class="in">And watch the plate rebuild as you go,</span></div></div>
+<div id="cap15" class="cap clip" data-start="25.77" data-duration="1.15" data-track-index="2"><div class="w"><span class="in">At <b>₹53</b> a day,</span></div></div>
+<div id="cap16" class="cap clip" data-start="26.95" data-duration="1.47" data-track-index="2"><div class="w"><span class="in">you actually hit your <b>goal.</b></span></div></div>
+<div id="cap17" class="cap clip" data-start="29.1" data-duration="1.22" data-track-index="2"><div class="w"><span class="in">Skip any food you don't like,</span></div></div>
+<div id="cap18" class="cap clip" data-start="30.35" data-duration="2.21" data-track-index="2"><div class="w"><span class="in">and it finds a new plan instantly.</span></div></div>
+<div id="cap19" class="cap clip" data-start="32.94" data-duration="1.76" data-track-index="2"><div class="w"><span class="in">Then it writes your shopping list.</span></div></div>
+<div id="cap20" class="cap clip" data-start="35.13" data-duration="1.56" data-track-index="2"><div class="w"><span class="in">I put it online with <b>Embarko.</b></span></div></div>
+<div id="cap21" class="cap clip" data-start="36.92" data-duration="2.22" data-track-index="2"><div class="w"><span class="in">My coding agent followed one prompt.</span></div></div>
+<div id="cap22" class="cap clip" data-start="39.31" data-duration="1.57" data-track-index="2"><div class="w"><span class="in">It was <b>live</b> under a minute.</span></div></div>
+<div id="cap23" class="cap clip" data-start="41.41" data-duration="1.35" data-track-index="2"><div class="w"><span class="in">It's <b>free,</b> with no sign-up.</span></div></div>
+<div id="cap24" class="cap clip" data-start="43.28" data-duration="1.31" data-track-index="2"><div class="w"><span class="in">Send this to your gym friend.</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#cap1 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},0.05);
+tl.fromTo("#cap2 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},1.92);
+tl.fromTo("#cap3 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},4.48);
+tl.fromTo("#cap4 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},6.67);
+tl.fromTo("#cap5 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},8.07);
+tl.fromTo("#cap6 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},9.82);
+tl.fromTo("#cap7 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},12.4);
+tl.fromTo("#cap8 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},13.2);
+tl.fromTo("#cap9 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},15.23);
+tl.fromTo("#cap10 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},16.76);
+tl.fromTo("#cap11 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},18.34);
+tl.fromTo("#cap12 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},19.98);
+tl.fromTo("#cap13 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},21.79);
+tl.fromTo("#cap14 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},23.46);
+tl.fromTo("#cap15 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},25.77);
+tl.fromTo("#cap16 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},26.95);
+tl.fromTo("#cap17 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},29.1);
+tl.fromTo("#cap18 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},30.35);
+tl.fromTo("#cap19 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},32.94);
+tl.fromTo("#cap20 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},35.13);
+tl.fromTo("#cap21 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},36.92);
+tl.fromTo("#cap22 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},39.31);
+tl.fromTo("#cap23 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},41.41);
+tl.fromTo("#cap24 .w",{y:10,opacity:0},{y:0,opacity:1,duration:0.12,ease:"power2.out"},43.28);
+    window.__timelines["captions"] = tl;
+  </script>
+</template>

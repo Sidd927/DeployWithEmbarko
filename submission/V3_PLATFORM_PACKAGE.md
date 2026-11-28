@@ -1,5 +1,10 @@
 # V3 Platform Package and Posting Steps
 
+> **Update (28 Nov, v4):** the recommended video is now **`video/exports/protein-recharge-v4-9x16.mp4`**.
+> - It's 46.4 s, uses the same voice and the same captions text, and the full-screen app footage is new.
+> - All copy, settings and steps below apply unchanged. Use `video/v4/protein-recharge-v4.srt` if a platform asks for subtitles (the captions are burned in, so normally skip it).
+> - Cover: keep `cover-v3-reels-1080x1920.png`. For a frame cover, pick **0.5 s** (Foods ranking, soya ringed).
+
 **Video:** `video/exports/protein-recharge-v3-9x16.mp4`
 - 46.4 s, narrated in your real voice, captions burned in.
 - Local only, so you upload it yourself. AirDrop it to your phone and post from the apps, not the web.

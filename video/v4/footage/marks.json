@@ -1,0 +1,40 @@
+{
+ "foods": {
+  "scroll": 2.207
+ },
+ "setup": {
+  "tap_build": 2.603,
+  "q_weight": 3.684,
+  "q_goal": 5.81,
+  "q_diet": 7.374,
+  "q_kitchen": 9.29,
+  "q_mess": 11.207,
+  "plan": 12.443
+ },
+ "budget": {
+  "drag": 1.803,
+  "released": 7.691
+ },
+ "exclude": {
+  "tap_row": 0.703,
+  "tap_skip": 1.946,
+  "close": 2.686,
+  "new_plan": 3.132
+ },
+ "list": {
+  "tap": 0.604,
+  "scroll": 2.356
+ },
+ "embarko": {
+  "scroll": 0.905,
+  "tap": 2.209
+ },
+ "live": {
+  "goto": 0.301,
+  "loaded": 1.291,
+  "scroll": 2.893
+ },
+ "share": {
+  "tap": 0.706
+ }
+}
